@@ -1394,12 +1394,7 @@
 			 *   from the first array, and the displayed value to the end user comes from the second
 			 *   array. 2D example: [ [ 10, 25, 50, 100, -1 ], [ 10, 25, 50, 100, 'All' ] ];
 			 */
-			this.aLengthMenu = [ 250, 500, 750, 1000,
-					     1250, 1500, 1750, 2000,
-					     2250, 2500, 2750, 3000,
-					     3250, 3500, 3750, 4000,
-					     4250, 4500, 4750, 5000,
-					     ];
+			this.aLengthMenu = [ 10, 25, 50, 100 ];
 			
 			/*
 			 * Variable: iDraw
