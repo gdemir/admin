@@ -972,7 +972,7 @@
 				"sEmptyTable": "No data available in table",
 				"sLoadingRecords": "Loading...",
 				// "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-				"sInfo": " [_START_, _END_] arası _TOTAL_ tane gösteriliyor...",
+				"sInfo": "_TOTAL_ taneden [_START_, _END_] arası gösteriliyor...",
 				"sInfoEmpty": "Showing 0 to 0 of 0 entries",
 				"sInfoFiltered": "(filtered from _MAX_ total entries)",
 				"sInfoPostFix": "",
