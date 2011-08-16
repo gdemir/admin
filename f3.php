@@ -14,7 +14,6 @@ function render() {
 	echo Template::serve('layout.htm');
 }
 function home() {
-	if (!adminsuper()) return F3::call('home');
 	page('Yönetici Paneli', 'home');
 }
 function info() {
