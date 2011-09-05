@@ -63,16 +63,15 @@ function giris() {
 	//
 	// talep : name
 	// cevap : name, surname, first_name, last_name
-	F3::set('SESSION.FIELDS',
-		array(
-			'id' => false,
-			'ad' => false,
-			'tc' =>false,
-			'name' => true,
-			'kizliksoyad' => false,
-			'tarih' =>false,
-			'saat' => false,
-		));
+	F3::set('SESSION.FIELDS', array(
+					'id' => false,
+					'ad' => false,
+					'tc' =>false,
+					'name' => true,
+					'kizliksoyad' => false,
+					'tarih' =>false,
+					'saat' => false,
+				));
 
 	if (F3::get('SESSION.admin'))
 		return F3::call('home');
