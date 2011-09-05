@@ -18,7 +18,8 @@ if (!F3::exists('error')) {
 		if ($gnl != 'photo') // photo'yu kaydetme
 			$table->$gnl = $blg;
 
-	$resim = "$TABLE/" . $table->$KEY . '.jpg';
+	//$resim = "$TABLE/" . $table->$KEY . '.jpg';
+	$resim =  $table->$KEY . '.jpg';
 	if (yukle(F3::get('uploaddir') . $resim, "photo", true)) // önceden bir resim var ise üzerine yaz gitsin
 		$table->photo = $resim;
 

@@ -16,7 +16,8 @@ if (!$table->found("$KEY='$key'")) {
 		if ($gnl != "photo") // alan adı photo ise kaydetme!
 			$table->$gnl = $blg;
 
-	$resim = "$TABLE/" . $table->$KEY . '.jpg';
+	//$resim = "$TABLE/" . $table->$KEY . '.jpg';
+	$resim = $table->$KEY . '.jpg';
 	if (yukle(F3::get('uploaddir') . $resim, "photo", false)) // resim yükle ve üzerine yazılmasın!
 		$table->photo = $resim;
 	else

@@ -3,7 +3,7 @@
 // table
 $TABLE = F3::get('SESSION.TABLE');
 $KEY = F3::get('SESSION.KEY');
-$key = F3::get('SESSION.key') ? F3::get('SESSION.key') : F3::get('REQUEST.key');
+$key = F3::get('REQUEST.key') ? F3::get('REQUEST.key') : F3::get('SESSION.key');
 
 if (!adminsuper()) return F3::call('home');
 

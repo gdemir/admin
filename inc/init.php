@@ -7,7 +7,16 @@ function strtolower_turkish($string) {
         );
         return strtolower(strtr($string, $lower));
 }
-
+function in($item, $fields) {
+	foreach ($fields as $field => $type) {
+		if ($type) {
+			if (preg_match('/'.$field.'/',$item)) return true;
+		} else {
+			if ($field == $item) return true;
+		}
+	}
+	return false;
+}
 function streq_turkish($string1, $string2) {
         return strtolower_turkish($string1) == strtolower_turkish($string2);
 }
@@ -68,7 +77,7 @@ function yukle($hedef=NULL, $alan='file', $uzerine_yazma=false) {
 	if (empty($hedef) || empty($yuklenen)) {
 		return false;
 	}
-
+/*
 	$split = preg_split(
 		'/\//', $hedef
 	);
@@ -79,7 +88,7 @@ function yukle($hedef=NULL, $alan='file', $uzerine_yazma=false) {
 	$dir = implode("/", $dirs);
 	if (! file_exists($dir))
 		mkdir($dir, 0777, true);
-
+ */
 	// bu bir uploaded dosya olmalı, fake dosyalara izin yok
 	if (is_uploaded_file($yuklenen)) {
 		// boyutu sınırla, değeri öylesine seçtim
@@ -174,7 +183,8 @@ function csv($TABLE, $table) {
 	echo $rows;
 
 	header("Content-type: text/csv");
-	header("Content-Disposition: attachment; filename=$TABLE-". date("Y.m.d") . ".csv");
+	// header("Content-Disposition: attachment; filename=$TABLE-". date("Y.m.d") . ".csv");
+	header("Content-Disposition: attachment; filename=$TABLE.csv");
 	exit;
 }
 

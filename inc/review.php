@@ -12,8 +12,9 @@ foreach (F3::get('DB->result') as $gnl => $blg)
 	array_push($fields, $blg['Field']);
 
 // özel gösterim FIXME
-// $fields = array('id',);
+$request_fields = array('id', 'tc', 'ad', 'soyad', 'kizliksoyad', 'tarih', 'saat', 'username', 'photo');
 F3::set('fields', $fields);
+F3::set('request_fields', $request_fields);
 
 $table = new Axon($TABLE);
 $table->afind();

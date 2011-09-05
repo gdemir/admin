@@ -1,6 +1,7 @@
 <?php
 
 require_once  'lib/base.php';
+require_once  'inc/init.php';
 
 function page($title, $template, $layout='render') {
 	F3::set('title', $title);
@@ -48,9 +49,30 @@ function review() {
 function giris() {
 	// nerede bizim istediğimiz tablolar ?
 	F3::set('SESSION.TABLES', array(
-				      'admin' => 'username',
+				      'kul' => 'tc',
+				      'staj' => 'tc',
 			      ));
-	F3::set('SESSION.TABLE_INIT', 'admin'); // login olursa, default olarak admin tablosu seçilsin
+
+       	// login olursa, default olarak admin tablosu seçilsin
+	F3::set('SESSION.TABLE_INIT', 'kul');
+
+	// tablo incele kısmında buna benzer şeyleri görürsen bizimde görmemize izin ver :-)
+	// Ör :
+	// talep : id
+	// cevap : bilmem_id, bilmem2_id, bilmem3_id
+	//
+	// talep : name
+	// cevap : name, surname, first_name, last_name
+	F3::set('SESSION.FIELDS',
+		array(
+			'id' => false,
+			'ad' => false,
+			'tc' =>false,
+			'name' => true,
+			'kizliksoyad' => false,
+			'tarih' =>false,
+			'saat' => false,
+		));
 
 	if (F3::get('SESSION.admin'))
 		return F3::call('home');
