@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+#notice {margin:auto;width:960px;}
+.success, .error {
+	width:       400px;
+	padding:     8px 20px 10px;
+	margin-top:   -30px;
+	margin-bottom:-20px;
+	color:       #fff;
+	background: #2daebf;
+	line-height: 16px;
+	font-size:   13px;
+	font-family: arial, helvetica, sans-serif;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius:      4px;
+	box-shadow:0 0px 10px rgba(0, 0, 0, 0.2);
+
+=======
 
 #foo {
 	margin:auto;
@@ -28,10 +46,14 @@
 
 .notice, .error {
 	padding:5px;
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 	border:solid 1px #cfe5a0;
 	border-top-color:#b4d76c;
 	border-left-color:#b4d76c;
 	background:#e3f0c8;
+<<<<<<< HEAD
+	color:#6c932f;
+=======
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	-o-border-radius:3px;
@@ -48,6 +70,7 @@
 	margin-bottom:5px;
 	font-size:11px;
 	text-transform:none;
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 }
 .error {
 	border:solid 1px #e5bda0;
@@ -56,6 +79,49 @@
 	background:#f0d9c8;
 	color:#9c4c33;
 }
+<<<<<<< HEAD
+.success2, .error2 {
+	width:       400px;
+	padding:     8px 20px 10px;
+	margin-top:   -30px;
+	margin-bottom:-20px;
+	color:       #fff;
+	background: #2daebf;
+	line-height: 16px;
+	font-size:   13px;
+	font-family: arial, helvetica, sans-serif;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius:      4px;
+	box-shadow:0 0px 10px rgba(0, 0, 0, 0.2);
+	font-weight: bold;
+	font-family: arial, helvetica, sans-serif;
+}
+.error2 {
+	color: white;
+	background-color:#d62929;
+}
+#successline, #errorline {
+	color:#468012;
+	margin-bottom:5px;
+	font-size:11px;
+	text-transform:none;
+}
+#errorline {
+	color:#763926;
+}
+#headline {
+    padding: 10px 20px;
+    background: #f8f8f8;
+    text-shadow: #fff 1px 1px;
+    color: #2f7ca2;
+    font-size: 17px;
+    margin-bottom: 20px;
+    font-weight:    bold;
+    font-family:    helvetica, geneva, arial, sans-serif;
+}
+#boxline {
+=======
 .error h3 {
 	color:#763926;
 }
@@ -65,6 +131,7 @@
 	margin:auto;
 }
 .box-header{
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 	color:#888888;
 	font-size:18px;
 	padding:15px;

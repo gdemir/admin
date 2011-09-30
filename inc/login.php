@@ -1,6 +1,9 @@
 <?php
+<<<<<<< HEAD
+=======
 include 'init.php';
 
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 foreach (array('username', 'password') as $alan) {
         F3::input($alan,
                 function($value) use($alan) {
@@ -29,7 +32,11 @@ if (! F3::exists('error')) {
                 F3::set('SESSION.admin', true);  // admin özelliği ekle
 
                 if ($admin->super)               // ek admin özellikleri ekle
+<<<<<<< HEAD
+                        F3::set('SESSION.adminsuper', $admin->super);
+=======
                         F3::set('SESSION.adminsuper', true);
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
                 F3::clear('error');
 
 		return F3::call('table.php'); // default tablo bilgilerimizi seçelim

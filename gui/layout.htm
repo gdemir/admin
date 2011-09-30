@@ -5,12 +5,23 @@
     <meta http-equiv = "Expires" content = "-1" />
     <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
     <link rel = "stylesheet" type = "text/css" href = "gui/css/admin.css" />
+<<<<<<< HEAD
+    <link rel = "stylesheet" type = "text/css" href = "gui/css/button.css" />
+    <link rel = "stylesheet" type = "text/css" href = "gui/css/flash.css" />
+=======
     <link rel = "stylesheet" type = "text/css" href = "gui/css/flash.css" />
     <link rel = "stylesheet" type = "text/css" href = "gui/css/button.css" />
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
     <link rel = "stylesheet" type = "text/css" href = "gui/css/login.css" />
     <link rel = "stylesheet" type = "text/css" href = "gui/css/style.css" />
     <link rel = "stylesheet" type = "text/css" href = "gui/css/local.css" />
     <title>{{@title}}</title>
+<<<<<<< HEAD
+    <style>
+   .page{margin-left:0px;width:920px}
+    </style>
+=======
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
   </head>
 
   <body>
@@ -37,16 +48,32 @@
 
     <F3:check if="{{@correct}}">
     <F3:true>
+<<<<<<< HEAD
+    <div id="notice">
+      <div class="success">
+        <h3 id="successline">Bir başarı iletisi var</h3>
+        {{@correct}}
+      </div>
+=======
     <div id="foo">
       <p class="notice2">{{@correct}}</p>
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
     </div>
     </F3:true>
     </F3:check>
 
     <F3:check if="{{@error}}">
     <F3:true>
+<<<<<<< HEAD
+    <div id="notice">
+      <div class="error">
+        <h3 id="errorline">Bir problemimiz var!</h3>
+        {{@error}}
+      </div>
+=======
     <div id="foo">
     <p class="error2">{{@error}}</p>
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
     </div>
     </F3:true>
     </F3:check>
@@ -54,6 +81,37 @@
     <div id="content">
       <F3:check if="{{@SESSION.admin}}">
       <F3:true>
+<<<<<<< HEAD
+      <div id="admin-panel">
+        <ul>
+          <li>
+              <img src="gui/images/accept_database.png"/>{{@SESSION.TABLE}}
+          </li>
+          <li>
+              <img src="gui/images/save.png"/>{{@SESSION.SAVE}}
+          </li>
+          <li>
+              <a href="{{@SERVICEROOT}}" title=""><img
+                src="gui/images/database.png"/>Tablolar</a>
+          </li>
+          <li>
+              <a href="review" title="">
+                <img src="gui/images/search_page.png"/>Tablo İncele</a>
+          </li>
+          <li>
+              <a href="new" title="">
+                <img src="gui/images/add_to_database.png"/>Ekle</a>
+          </li>
+          <li>
+              <a href="find" title="">
+                <img src="gui/images/search_database.png"/>Bul</a>
+          </li>
+          <li>
+              <a href="csv" title="">
+                <img src="gui/images/download_database.png"/>Csv Çıktı</a>
+          </li>
+        </ul>
+=======
       <div id="column">
         <table>
           <tr><td>
@@ -91,6 +149,7 @@
                 <img src="gui/images/pdf.png"/>Pdf Çıktı</a>
           </td></tr>
         </table>
+>>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
       </div>
       </F3:true>
       </F3:check>
