@@ -1,0 +1,16 @@
+[globals]
+; F3 magic'leri
+extlink="window.open(this.href); return false;"
+RELEASE="FALSE"
+IMPORTS="inc/"
+FONTS="public/fonts/"
+GUI="gui/"
+
+; Veritabanı
+dbname="BANA_VERITABANI_VER"
+dbuser="BANA_KULLANICI_VER"
+dbpass="BANA_PAROLA_VER"
+
+; Resim
+uploaddir="public/upload/"
+default_image="default.png"
