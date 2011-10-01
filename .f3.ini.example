@@ -3,10 +3,8 @@
 extlink="window.open(this.href); return false;"
 RELEASE="FALSE"
 IMPORTS="inc/"
-FONTS="../public/fonts/"
-TEMP="../temp/"
+FONTS="gui/fonts/"
 GUI="gui/"
-LAYOUTS="../layouts/"
 
 ; Veritabanı
 dbname="BANA_VERITABANI_VER"
