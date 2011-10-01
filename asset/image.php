@@ -7,7 +7,7 @@ class Image {
 
 	static $_small = 'small';
 	static $_extension = '.jpg';
-	static $_dir = "img/";
+	static $_dir = "public/upload/";
 
 	public static function upload($subdir, $savename, $uploaded, $overwrite=false, $size=550001) {
 		$uploaded = $uploaded['tmp_name'];

@@ -4,12 +4,12 @@
     <meta http-equiv = "Pragma" content = "no-cache" />
     <meta http-equiv = "Expires" content = "-1" />
     <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
-    <link rel = "stylesheet" type = "text/css" href = "gui/css/admin.css" />
-    <link rel = "stylesheet" type = "text/css" href = "gui/css/flash.css" />
-    <link rel = "stylesheet" type = "text/css" href = "gui/css/button.css" />
-    <link rel = "stylesheet" type = "text/css" href = "gui/css/login.css" />
-    <link rel = "stylesheet" type = "text/css" href = "gui/css/style.css" />
-    <link rel = "stylesheet" type = "text/css" href = "gui/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/admin.css" />
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/flash.css" />
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/button.css" />
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/login.css" />
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/local.css" />
     <title>{{@title}}</title>
     <style>
       .page{margin-left:0px;width:920px}
@@ -66,34 +66,34 @@
         <div id="admin-panel">
           <ul>
             <li>
-                <img src="gui/images/accept_database.png"/>{{@SESSION.TABLE}}
+                <img src="public/images/accept_database.png"/>{{@SESSION.TABLE}}
             </li>
             <li>
-                <img src="gui/images/save.png"/>{{@SESSION.SAVE}}
+                <img src="public/images/save.png"/>{{@SESSION.SAVE}}
             </li>
             <li>
                 <a href="{{@SERVICEROOT}}" title=""><img
-                  src="gui/images/database.png"/>Tablolar</a>
+                  src="public/images/database.png"/>Tablolar</a>
             </li>
             <F3:check if="{{@SESSION.adminsuper}}">
               <F3:true>
               <li>
                   <a href="review" title="">
-                    <img src="gui/images/search_database.png"/>Tablo İncele</a>
+                    <img src="public/images/search_database.png"/>Tablo İncele</a>
               </li>
               <li>
                   <a href="new" title="">
-                    <img src="gui/images/add_to_database.png"/>Ekle</a>
+                    <img src="public/images/add_to_database.png"/>Ekle</a>
               </li>
               <li>
                   <a href="find" title="">
-                    <img src="gui/images/search_page.png"/>Bul</a>
+                    <img src="public/images/search_page.png"/>Bul</a>
               </li>
               </F3:true>
             </F3:check>
             <li>
                 <a href="csv" title="">
-                  <img src="gui/images/download_database.png"/>Csv Çıktı</a>
+                  <img src="public/images/download_database.png"/>Csv Çıktı</a>
             </li>
           </ul>
         </div>

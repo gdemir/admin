@@ -49,13 +49,12 @@ function review() {
 function giris() {
 	// nerede bizim istediğimiz tablolar ?
 	F3::set('SESSION.TABLES', array(
-				      'admin' => 'username',
-				      'kul' => 'tc',
-				      'staj' => 'tc',
+					'admin' => 'username',
+					// 'kul' => 'tc',
 			      ));
 
        	// login olursa, default olarak admin tablosu seçilsin
-	F3::set('SESSION.TABLE_INIT', 'kul');
+	F3::set('SESSION.TABLE_INIT', 'admin');
 
 	// tablo incele kısmında buna benzer şeyleri görürsen bizimde görmemize izin ver :-)
 	// Ör :
@@ -93,9 +92,6 @@ function logout() {
 	F3::reroute('/');
 }
 
-F3::config(".f3.ini");
-F3::set('DB', new DB('mysql:host=localhost;port=3306;dbname=' . F3::get('dbname'), F3::get('dbuser'), F3::get('dbpass')));
-F3::set('SERVICEROOT', '/' . strtok($_SERVER["SCRIPT_NAME"], '/'));
 
 F3::route("GET  /*",      'giris');
 F3::route("POST /login",  'login.php');
