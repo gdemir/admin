@@ -10,25 +10,26 @@
 
 index.php içindeki `giris()` fonksiyonunda
 
-	F3::set('SESSION.TABLES', array(
-			'admin' => 'username',
-			));
+	  F3::set('SESSION.TABLES', array(
+					'admin' => 'username',
+	  ));
 
 gerekli `tablo + key` bilgilerinin eklenmesi.
 
 - tablo içerik görüntüleme yapılandırması
 
-	F3::set('SESSION.FIELDS', array(
-			'id' => true,
-			'name' => true,
-			'tc' => false,
-			));
-	// Ör :
-	// talep : _id => true
-	// cevap : bilmem_id, bilmem2_id, bilmem3_id
-	//
-	// talep : name => true
-	// cevap : name, surname, first_name, last_name, username
+	  F3::set('SESSION.FIELDS', array(
+					'id' => true,
+					'name' => true,
+					'tc' => false,
+	  ));
+
+	  // Ör :
+	  // talep : _id => true
+	  // cevap : bilmem_id, bilmem2_id, bilmem3_id
+	  //
+	  // talep : name => true
+	  // cevap : name, surname, first_name, last_name, username
 
 - img dizini `sudo chmod 777 img` diyerek izinlerinin değiştirilmesi
 
