@@ -1,10 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
 
-include 'init.php';
-
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 foreach (array('key') as $alan) {
         F3::input($alan,
                 function($value) use($alan) {

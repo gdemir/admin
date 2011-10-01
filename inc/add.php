@@ -1,10 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
 
-include 'init.php';
-
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 // table & key
 $TABLE = F3::get('SESSION.TABLE');
 $KEY = F3::get('SESSION.KEY');
@@ -19,8 +14,7 @@ if (!$table->found("$KEY='$key'")) {
 		if ($gnl != "photo") // alan adı photo ise kaydetme!
 			$table->$gnl = $blg;
 
-<<<<<<< HEAD
-	$table->photo = "default.jpg"; // default resim
+	$table->photo = F3::get('default_image'); // default resim
 	$table->save();
 
 	$table = new Axon($TABLE);
@@ -32,14 +26,6 @@ if (!$table->found("$KEY='$key'")) {
 			$table->photo = $response[1];
 		else
 			F3::set('error', $response[1]);
-=======
-	//$resim = "$TABLE/" . $table->$KEY . '.jpg';
-	$resim = $table->$KEY . '.jpg';
-	if (yukle(F3::get('uploaddir') . $resim, "photo", false)) // resim yükle ve üzerine yazılmasın!
-		$table->photo = $resim;
-	else
-		$table->photo = "default.png"; // default resim
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 
 	if (F3::exists('error')) // yükleme sırasında hata var mı?
 		return F3::call('add');

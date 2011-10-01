@@ -1,10 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
 
-include 'init.php';
-
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 if (!F3::exists('error')) {
 
 	// table & key
@@ -21,9 +16,7 @@ if (!F3::exists('error')) {
 		if ($gnl != 'photo') // photo'yu kaydetme
 			$table->$gnl = $blg;
 
-<<<<<<< HEAD
-
-	$table->photo = "default.jpg"; // default resim
+	$table->photo = F3::get('default_image'); // default resim
 	$table->save();
 
 	$table = new Axon($TABLE);
@@ -33,12 +26,6 @@ if (!F3::exists('error')) {
 	if ($response = Image::upload($TABLE, $table->$KEY, F3::get("FILES.photo"), true))
 		if ($response[0])
 			$table->photo = $response[1];
-=======
-	//$resim = "$TABLE/" . $table->$KEY . '.jpg';
-	$resim =  $table->$KEY . '.jpg';
-	if (yukle(F3::get('uploaddir') . $resim, "photo", true)) // önceden bir resim var ise üzerine yaz gitsin
-		$table->photo = $resim;
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 
 	if (F3::exists('error')) // yükleme sırasında hata var mı?
 		return F3::call('edit');

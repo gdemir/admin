@@ -14,14 +14,9 @@ F3::set('SESSION.KEY', $TABLES[$TABLE]);
 
 $table = new Axon($TABLE);
 
-<<<<<<< HEAD
 $save = $table->find();
 // tablo kayıt sayısını kaydedelim
 F3::set('SESSION.SAVE', ($save) ? count($save) : "0");
-=======
-// tablo kayıt sayısını kaydedelim
-F3::set('SESSION.SAVE', count($table->find()));
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 
 F3::set('correct', "'$TABLE' tablosu başarıyla seçildi.");
 

@@ -18,10 +18,6 @@ body {
     color: #ccc;
     font-size: 13px;
     line-height: 18px;
-<<<<<<< HEAD
-=======
-    margin-top: 10px;
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
     word-spacing: 1px;
     font-weight: bold;
     letter-spacing:0.4px;
@@ -38,7 +34,6 @@ body {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-<<<<<<< HEAD
     /*
     -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.2);
     -moz-box-shadow:0 2px 2px rgba(0,0,0,0.2);
@@ -48,11 +43,6 @@ body {
     -moz-box-shadow:0 2px 2px rgba(0,0,0,0.2);
     box-shadow:0 3px 12px rgba(0, 0, 0, 0.3);
 
-=======
-    -webkit-box-shadow:0 2px 2px rgba(0,0,0,0.2);
-    -moz-box-shadow:0 2px 2px rgba(0,0,0,0.2);
-    box-shadow:0 5px 20px rgba(0, 0, 0, 0.3);
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 }
 
 h2 {margin-bottom:30px;}
@@ -170,36 +160,9 @@ h2.yellow {color:#fc9200;color:#d17200;}
     -moz-border-radius: 5px; border-radius: 5px;
 }
 .black_overlay{
-<<<<<<< HEAD
       position: absolute; top: 0%;left: 0%; width: 60%; height: 100%;
       background-color: #2daebf;z-index:1001;
-=======
-      position: absolute; top: 0%;left: 0%; width: 100%; height: 100%;
-      background-color: black;z-index:1001;
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
       -moz-opacity: 0.8; opacity:.70; filter: alpha(opacity=80);
 }
 /* ------------------------------------------------------------------ */
 
-<<<<<<< HEAD
-=======
-h1#headline,
-h2#headline,
-h3#headline,
-h4#headline,
-h5#headline{
-    padding: 10px 20px;
-    background: #f8f8f8;
-    text-shadow: #fff 1px 1px;
-    color: #2f7ca2;
-    color:red;
-    font-size: 17px;
-    margin-bottom: 20px;
-    font-weight:    bold;
-    font-family:    helvetica, geneva, arial, sans-serif;
-    color: #2f7ca2;
-    margin-top:0px;
-}
-
-
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa

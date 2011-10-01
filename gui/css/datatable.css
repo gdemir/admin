@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .dt_example {font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;width: 920px;float:left;}
-=======
-.dt_example {font: 11px "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;width: 770px;float:left;}
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 
 /* -------------------------------------------------------------------------------------------*/
 
@@ -142,7 +138,3 @@ tr.even td.sorting_3 {background-color: #F9F9FF;}
 #example {border-left: 1px solid #d3d3d3;border-right: 1px solid #d3d3d3;}
 #example_length select {width:60px;}
 .dt_example textarea{width:100;}
-<<<<<<< HEAD
-=======
-
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa

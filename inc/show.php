@@ -1,9 +1,6 @@
 <?php
 
-<<<<<<< HEAD
 // table & key
-=======
->>>>>>> de65aee3a127560e2d80eaef2d986171cd2fe5fa
 $TABLE = F3::get('SESSION.TABLE');
 $KEY = F3::get('SESSION.KEY');
 $key = F3::get('SESSION.key');
