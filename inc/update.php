@@ -23,14 +23,18 @@ if (!F3::exists('error')) {
 	$table->load("$KEY='$key'");
 
 	// önceden bir resim var ise üzerine yaz gitsin
-	if ($response = Image::upload($TABLE, $table->$KEY, F3::get("FILES.photo"), true))
-		if ($response[0])
+	$up = new Upload();
+	if ($response = ($up->load($TABLE, $table->$KEY, F3::get("FILES.photo"), true)))
+		if ($response[0]) // istek başarı mı / hata mı ?
 			$table->photo = $response[1];
 
 	if (F3::exists('error')) // yükleme sırasında hata var mı?
 		return F3::call('edit');
 
 	$table->save();
+
+	// yeni process kaydet
+	process("update");
 
 	F3::set('correct', $table->$KEY . ' bilgisine sahip kişi başarıyla güncellendi.');
 	return F3::call('show.php');

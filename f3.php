@@ -2,6 +2,7 @@
 
 require_once  'lib/base.php';
 require_once  'asset/lib.php';
+require_once  'config/init.php';
 
 function page($title, $template, $layout='render') {
 	F3::set('title', $title);
@@ -46,33 +47,13 @@ function review() {
 	if (!adminsuper()) return F3::call('home');
 	page('Listelendi', 'review');
 }
+function process() {
+	F3::set('SESSION.TABLE','process');
+	F3::call("review.php");
+}
 function giris() {
-	// nerede bizim istediğimiz tablolar ?
-	F3::set('SESSION.TABLES', array(
-					'admin' => 'username',
-					// 'kul' => 'tc',
-			      ));
-
-       	// login olursa, default olarak admin tablosu seçilsin
-	F3::set('SESSION.TABLE_INIT', 'admin');
-
-	// tablo incele kısmında buna benzer şeyleri görürsen bizimde görmemize izin ver :-)
-	// Ör :
-	// talep : id
-	// cevap : bilmem_id, bilmem2_id, bilmem3_id
-	//
-	// talep : name
-	// cevap : name, surname, first_name, last_name
-	F3::set('SESSION.FIELDS', array(
-					'id' => false,
-					'ad' => false,
-					'tc' =>false,
-					'name' => true,
-					'photo' => false,
-					'kizliksoyad' => false,
-					'tarih' =>false,
-					'saat' => false,
-				));
+	// tablo ve alanlarımız
+	include 'config/session_table_field.php';
 
 	if (F3::get('SESSION.admin'))
 		return F3::call('home');
@@ -80,6 +61,12 @@ function giris() {
 }
 
 function logout() {
+	$admin = new Axon('admin');
+	$username = F3::get('SESSION.adminusername');
+	$admin->load("username='$username'");
+	$admin->logout = date("Y-m-d h:i:s");
+	$admin->save();
+
 	if (F3::get('SESSION.admin')) {
 		F3::clear('SESSION.adminusername'); // admin özelliği sil
 		F3::clear('SESSION.adminpassword'); // ek admin özellikleri sil
@@ -97,8 +84,8 @@ F3::route("GET  /*",      'giris');
 F3::route("POST /login",  'login.php');
 F3::route('GET  /logout', 'logout');
 F3::route('POST /table',  'table.php');
+F3::route('GET  /process','process');
 
-//F3::route("GET /pdf",    'pdf.php'); TODO halen sorunlu yapılmadı.
 F3::route("GET /info",   'info');
 F3::route("GET /review", 'review.php');
 F3::route("GET /csv",    'csv.php');
@@ -110,7 +97,6 @@ F3::route("POST /show",   'show');
 F3::route("POST /add",   'add.php');
 F3::route("POST /find",  'find.php');
 F3::route("POST /del",   'del.php');
-/* F3::route("GET  /edit",  'edit'); */
 F3::route("POST /edit",  'edit.php');
 F3::route("POST /update",'update.php');
 
