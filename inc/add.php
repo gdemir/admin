@@ -10,13 +10,14 @@ $table = new Axon($TABLE);
 // oturumdan veriyi kontrol edelim
 if (!$table->found("$KEY='$key'")) {
 
-	foreach($_POST as $gnl => $blg)
+	foreach ($_POST as $gnl => $blg)
 		if ($gnl != "photo") // alan adı photo ise kaydetme!
 			$table->$gnl = $blg;
 
 	$table->photo = F3::get('default_image'); // default resim
 	$table->save();
 
+	// resim isteğimiz var mı ?
 	$table = new Axon($TABLE);
 	$table->load("$KEY='$key'");
 
@@ -34,9 +35,6 @@ if (!$table->found("$KEY='$key'")) {
 
 	F3::set('SESSION.SAVE', count($table->find())); // yeni kayıt ekler eklemez toplam kayıtı bir artırsın
 	F3::set('SESSION.key', $table->$KEY);
-
-	// yeni process kaydet
-	process("add");
 
 	// oturumu öldürelim
 	F3::clear('error');F3::clear('correct');

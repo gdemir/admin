@@ -1,26 +1,44 @@
 <?php
-// table ana csv çıktı şeması
-function csv($TABLE, $table) {
-	$title = false;
-	$fields = "";
-	$rows = "";
-	foreach (F3::get('DB->result') as $index => $kisi) {
-		$row = "";
-		foreach ($kisi as $alan => $deger) {
+class Csv {
+	// table ana csv çıktı şeması
+	public static function download($_table, $_rows, $_csv_key=",") {
+		$title = false;
+		$fields = "";
+		$rows = "";
+		foreach ($_rows as $index => $row) {
+			$line = "";
+			foreach ($row as $key => $value) {
+
+				if (!$title)
+					$fields .= ( $fields ? $_csv_key : '') . $key;
+				$line .= ($line ? $_csv_key : '') . $value;
+			}
 			if (!$title)
-			       	$fields .= ( $fields ? ',' : '') . $alan;
-			$row .= ($row ? ',' : '') . $deger;
+				$rows .= $fields . "\n";
+			$rows .= $line . "\n";
+			$title = true;
 		}
-		if (!$title)
-			$rows .= $fields . "\n";
-		$rows .= $row . "\n";
-		$title = true;
+		echo $rows;
+
+		header("Content-type: text/csv");
+		header("Content-Disposition: attachment; filename=$_table-". date("Y.m.d") . ".csv");
+		exit;
 	}
-	echo $rows;
 
-	header("Content-type: text/csv");
-	header("Content-Disposition: attachment; filename=$TABLE-". date("Y.m.d") . ".csv");
-	exit;
+	// table ana csv yükleme şeması
+	public static function read($_csv_file, $_csv_key=",") {
+
+		$rows = array();
+		if (($handle = fopen($_csv_file, "r")) !== FALSE) {
+			while (($data = fgetcsv($handle, 1000, $_csv_key)) != FALSE) {
+				$num = count($data);
+
+				for ($c = 0; $c < $num; $c++)
+					array_push($data[$c], $rows);
+			}
+			fclose($handle);
+		}
+		return $rows;
+	}
 }
-
 ?>

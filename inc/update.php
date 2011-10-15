@@ -12,7 +12,7 @@ if (!F3::exists('error')) {
 	// oturumdan veriyi yükleyelim
 	$table->load("$KEY='$key'");
 
-	foreach($_POST as $gnl => $blg)
+	foreach ($_POST as $gnl => $blg)
 		if ($gnl != 'photo') // photo'yu kaydetme
 			$table->$gnl = $blg;
 
@@ -32,9 +32,6 @@ if (!F3::exists('error')) {
 		return F3::call('edit');
 
 	$table->save();
-
-	// yeni process kaydet
-	process("update");
 
 	F3::set('correct', $table->$KEY . ' bilgisine sahip kişi başarıyla güncellendi.');
 	return F3::call('show.php');
