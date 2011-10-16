@@ -4,7 +4,6 @@
 // nerede bizim istediğimiz tablolar ?
 F3::set('SESSION.TABLES', array(
 				'admin' => 'username',
-				'event' => 'event_id',
 			));
 
 // TABLE INIT
