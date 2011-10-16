@@ -4,47 +4,44 @@ require_once  'lib/base.php';
 require_once  'asset/lib.php';
 require_once  'config/init.php';
 
-function page($title, $template, $layout='render') {
+function render($template, $title) {
 	F3::set('title', $title);
 	F3::set('template', $template);
-	F3::call($layout);
-}
-function render() {
 	echo Template::serve('layout.htm');
 }
 function download() {
-	page('Tablo Indirme', 'download');
+	render('download', 'Tablo İndirme');
 }
 function upload() {
-	page('Tablo Yükleme', 'upload');
+	render('upload', 'Tablo Yükleme');
 }
 function home() {
-	page('Yönetici Paneli', 'home');
+	render('home', 'Yönetici Paneli');
 }
 function info() {
-	page('Bilgilendirme Sayfası', 'info');
+	render('info', 'Bilgilendirme Sayfası');
 }
 function add() {
-	page('Kaydet', 'new');
+	render('new', 'Kaydet');
 }
 function edit() {
-	page('Düzenle', 'edit');
+	render('edit', 'Düzenle');
 }
 function find() {
-	page('Bul', 'find');
+	render('find', 'Bul');
 }
 function show() {
-	page('İnceleme Sonuçları', 'show');
+	render('show', 'İnceleme Sonuçları');
 }
 function review() {
-	page('Listelendi', 'review');
+	render('review', 'Listelendi');
 }
 function login() {
 	// tablo ve alanlarımız
 	include 'config/session_table_field.php';
 
 	if (F3::get('SESSION.admin'))  return F3::call('home'); // f3.php'den fonksiyon çağırımı
-	page('Yönetici Paneli', 'login'); // adminlayout sadece login sayfası için
+	render('login', 'Yönetici Paneli'); // adminlayout sadece login sayfası için
 }
 
 F3::route("GET  /*",        'login');        // login page
