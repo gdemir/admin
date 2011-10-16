@@ -16,7 +16,6 @@ if (!F3::exists('error')) {
 		if ($gnl != 'photo') // photo'yu kaydetme
 			$table->$gnl = $blg;
 
-	$table->photo = F3::get('default_image'); // default resim
 	$table->save();
 
 	$table = new Axon($TABLE);

@@ -35,7 +35,7 @@ class Upload {
 	public function __construct($type=array('jpeg'), $dir='upload', $size=5500000) {
 		$this->_upload = array(
 				'dir' => $dir,
-				'path' => '../public/' . $dir,
+				'path' => 'public/' . $dir,
 				'size' => $size,
 				'type' => $type,
 			);

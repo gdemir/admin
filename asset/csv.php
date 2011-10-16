@@ -32,9 +32,10 @@ class Csv {
 		if (($handle = fopen($_csv_file, "r")) !== FALSE) {
 			while (($data = fgetcsv($handle, 1000, $_csv_key)) != FALSE) {
 				$num = count($data);
-
+				$row = array();
 				for ($c = 0; $c < $num; $c++)
-					array_push($data[$c], $rows);
+					array_push($row, $data[$c]);
+				array_push($rows, $row);
 			}
 			fclose($handle);
 		}
