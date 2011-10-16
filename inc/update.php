@@ -26,6 +26,8 @@ if (!F3::exists('error')) {
 	if ($response = ($up->load($TABLE, $table->$KEY, F3::get("FILES.photo"), true)))
 		if ($response[0]) // istek başarı mı / hata mı ?
 			$table->photo = $response[1];
+		else
+			F3::set('error', $response[1]);
 
 	if (F3::exists('error')) // yükleme sırasında hata var mı?
 		return F3::call('edit');
