@@ -8,40 +8,47 @@
 
 - tablo yapılandırması :
 
-index.php içindeki `giris()` fonksiyonunda
+`config/session_table_field.php` içinde
 
-	  F3::set('SESSION.TABLES', array(
+		F3::set('SESSION.TABLES', array(
 					'admin' => 'username',
-	  ));
+		));
 
-gerekli `tablo + key` bilgilerinin eklenmesi.
+gerekli `tablo + key` bilgilerinin eklenmesi/düzenlenmesi.
+
+- tablo ilklendirmesinin yapılandırması
+
+
+		F3::set('SESSION.TABLE_INIT', 'admin');
+
+sisteme login olunca ilk seçilecek tablo.
 
 - tablo içerik görüntüleme yapılandırması
 
-	  F3::set('SESSION.FIELDS', array(
+		F3::set('SESSION.FIELDS', array(
 					'id' => true,
 					'name' => true,
 					'tc' => false,
-	  ));
+		));
 
-	  // Ör :
-	  // talep : _id => true
-	  // cevap : bilmem_id, bilmem2_id, bilmem3_id
-	  //
-	  // talep : name => true
-	  // cevap : name, surname, first_name, last_name, username
+		// Ör :
+		// talep : _id => true
+		// cevap : bilmem_id, bilmem2_id, bilmem3_id
+		//
+		// talep : name => true
+		// cevap : name, surname, first_name, last_name, username
 
-- img dizini `sudo chmod 777 img` diyerek izinlerinin değiştirilmesi
+- public/upload dizini izin ayarı
 
-- img dizini yapılandırması
+	`sudo chmod -R 777 upload` diyerek izinlerinin değiştirilmesi
 
-	sudo chmod 777 img`
-
-diyerek izinlerinin değiştirilmesi, `img/«tablo_adı»/primary_key.jpg` şeklinde
+diyerek izinlerinin değiştirilmesi, `public/upload/«tablo_adı»/primary_key.jpg` şeklinde
 kayıt alıyor
 
-not : tabloda photo, content isimlerinin özellikleri var
+not : tabloda photo, content isimleri için ayrı input gösterimleri var.
 
-f3-version: 2.0
+**f3-version: 2.0**
+
+Her servis'e lazım bir admin paneli
 --
 
