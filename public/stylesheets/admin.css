@@ -6,26 +6,31 @@
     min-height:340px;
 }
 
-#admin-panel {width:920px;height:60px;border-bottom:1px solid #ddd;}
+#admin-panel {width:920px;height:60px;border-bottom:1px solid #ddd;margin-top:-20px;}
 #admin-panel ul {font-size:12px;font-weight:bold;list-style-type:none;margin-left:-40px;}
-#admin-panel li {float:left;width:90px;color:#3b5998;text-align:center;margin-left:20px;}
+#admin-panel li {float:left;width:90px;color:#3072B3;text-align:center;margin-left:20px;}
+#admin-panel a {color:#3072B3;}
 #admin-panel li img {width:40px;height:40px;margin:0 34px;}
 /* ---------------------------------------------------------- */
+
+table.custom {
+    width:599px;
+    margin:0 auto;
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
 table.custom th,
 table.custom td {
-    padding: 8px;
+    padding: 4px;
+    margin-bottom:20px;
     font-size: 12px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
-table.custom {
-    border-spacing: 5px;
-    border-collapse: separate;
-}
-
-table.custom textarea{height:70px;}
+table.custom textarea{height:150px;}
 table.custom textarea,
 table.custom input[type=text],
 table.custom input[type=password]{
@@ -46,8 +51,8 @@ table.custom select {
     font:   13px Arial, Helvetica, sans-serif;
     padding:3px;
     background:#fff;
-    width:  350px;
-    height: 27px;
+    width:  380px;
+    height: 30px;
     color:  #585858;
 }
 
