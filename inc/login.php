@@ -42,5 +42,5 @@ if (! F3::exists('error')) {
 
 // hata var, dön başa ve tekrar sorgu al.
 // error alanı dolu ve layout.htm'de görüntülenecek
-F3::call('giris'); // f3.php'den fonksiyon çağırımı
+F3::call('login'); // f3.php'den fonksiyon çağırımı
 ?>

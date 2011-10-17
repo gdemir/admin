@@ -1,5 +1,5 @@
 #notice {margin:auto;width:960px;}
-.success, .error {
+.success, .error, .warning {
 	width:       400px;
 	padding:     8px 20px 10px;
 	margin-top:   -30px;
@@ -26,6 +26,13 @@
 	border-left-color:#d7996c;
 	background:#f0d9c8;
 	color:#9c4c33;
+}
+.warning {
+	border:solid 1px #e5bda0;
+	border-top-color:#d7996c;
+	border-left-color:#d7996c;
+	background:#feefb3;
+	color:#9f6000;
 }
 .success2, .error2 {
 	width:       400px;
