@@ -38,12 +38,12 @@
     </F3:true>
     </F3:check>
 
-    <F3:check if="{{@correct}}">
+    <F3:check if="{{@success}}">
     <F3:true>
     <div id="notice">
       <div class="success">
         <h3 id="successline">Bir başarı iletisi var</h3>
-        {{@correct}}
+        {{@success}}
       </div>
     </div>
     </F3:true>
@@ -55,6 +55,17 @@
       <div class="error">
         <h3 id="errorline">Bir problemimiz var!</h3>
         {{@error}}
+      </div>
+    </div>
+    </F3:true>
+    </F3:check>
+
+    <F3:check if="{{@warning}}">
+    <F3:true>
+    <div id="notice">
+      <div class="warning">
+        <h3 id="warningline">Bir uyarımız var</h3>
+        {{@warning}}
       </div>
     </div>
     </F3:true>

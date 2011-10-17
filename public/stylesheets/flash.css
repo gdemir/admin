@@ -28,9 +28,9 @@
 	color:#9c4c33;
 }
 .warning {
-	border:solid 1px #e5bda0;
-	border-top-color:#d7996c;
-	border-left-color:#d7996c;
+	border:solid 1px #e38900;
+	border-top-color: #d58100;
+	border-left-color:#d58100;
 	background:#feefb3;
 	color:#9f6000;
 }
@@ -55,7 +55,7 @@
 	color: white;
 	background-color:#d62929;
 }
-#successline, #errorline {
+#successline, #errorline, #warningline {
 	color:#468012;
 	margin-bottom:5px;
 	font-size:11px;
@@ -63,6 +63,9 @@
 }
 #errorline {
 	color:#763926;
+}
+#warningline {
+	color:#bd7005;
 }
 #headline {
     padding: 10px 20px;
