@@ -6,6 +6,9 @@ $KEY = F3::get('SESSION.KEY');
 $csv_key = F3::get('REQUEST.csv_key');
 $csv_file = F3::get('FILES.csv_file');
 
+if (! $csv_key)
+	F3::set('error', 'Ayırıcı karakter girmelisiniz');
+
 $up = new Upload(array('csv'));
 
 if ($response = ($up->load($TABLE, $TABLE, $csv_file, true)))

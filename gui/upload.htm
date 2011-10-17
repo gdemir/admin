@@ -6,7 +6,15 @@
       <tr>
         <td class="label"> Csv ayırıcı karakter: </td>
         <td class="field">
-          <input type="text" name="csv_key" value="," maxlength="1"/>
+          <select name="csv_key">
+            <option value='' selected></option>
+            <option value=','>,</option>
+            <option value=';'>;</option>
+            <option value='|'>|</option>
+            <option value='~'>~</option>
+            <option value='$'>$</option>
+            <option value='#'>#</option>
+          </select>
         </td>
       </tr>
       <tr>
