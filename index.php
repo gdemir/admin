@@ -1,16 +1,10 @@
 <?php
 
-require_once  'lib/base.php';
-require_once  'asset/lib.php';
-require_once  'config/init.php';
+require_once './lib/base.php';
+require_once './asset/lib.php';
 
-function render($template, $title) {
-	F3::set('title', $title);
-	F3::set('template', $template);
-	echo Template::serve('layout.htm');
-}
 function download() {
-	render('download', 'Tablo İndirme');
+	render('download', 'Tablo Indirme');
 }
 function upload() {
 	render('upload', 'Tablo Yükleme');
@@ -46,9 +40,10 @@ function login() {
 
 F3::route("GET  /*",        'login');        // login page
 F3::route("POST /login",    'login.php');    // login action
-F3::route('GET  /logout',   'logout.php');   // logout action
+F3::route('GET  /logout',   'logout');       // logout action
 F3::route('POST /table',    'table.php');    // table action
 
+F3::route("GET  /printly",  'printly');
 F3::route("GET  /info",     'info');         // info page
 F3::route("GET  /review",   'review.php');   // review action
 F3::route("GET  /download", 'download');     // csv download page

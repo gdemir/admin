@@ -12,7 +12,7 @@
 // # ör: (jpeg, png) dosya yükleme
 // $up = new Upload(array('jpeg','png'),'upload', 55000000); //up= new Upload();
 //
-// $up->load('alt-dizin', 'yeni-kayit.jpeg', $_FILE['photo']);
+// $up->load('alt-dizin', 'yeni-kayit', $_FILE['photo']);
 //
 //
 // # ör: (jpeg) dosya silme
@@ -35,7 +35,7 @@ class Upload {
 	public function __construct($type=array('jpeg'), $dir='upload', $size=5500000) {
 		$this->_upload = array(
 				'dir' => $dir,
-				'path' => 'public/' . $dir,
+				'path' => '../public/' . $dir,
 				'size' => $size,
 				'type' => $type,
 			);

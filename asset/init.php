@@ -1,5 +1,4 @@
 <?php
-
 // heryerde kullanilmayi dusundugumuz fonksiyonlari barindirdigimiz dosya
 function strtolower_turkish($string) {
         $lower = array(
@@ -61,6 +60,86 @@ function denetle($verilen, $tarif) {
 	}
 }
 
+function yukle($hedef=NULL, $alan='file', $uzerine_yazma=false, $type='IMAGETYPE_JPEG', $fsz=550000) {
+	return yukle2($hedef, "$alan.tmp_name", $uzerine_yazma, $type, $fsz);
+}
+
+function yukle2($hedef=NULL, $tmp_name='file.tmp_name', $uzerine_yazma=false, $type='IMAGETYPE_JPEG', $fsz=550000) {
+        $yuklenen = F3::get("FILES.$tmp_name");
+
+	// hedef ve yüklenen dosyanın boş olmasına izin veriyoruz
+	// herhangi biri boşsa mesele yok, çağırana dön
+	if (empty($hedef) || empty($yuklenen)) {
+		return false;
+	}
+
+	$split = preg_split(
+		'/\//', $hedef
+	);
+
+	// resimlere yataklık edecek recursive bir dizin oluşturma
+	// ör : img/ ve img/student/ 'ı otomatik oluşturur.
+	$dirs = array_slice($split, 0, count($split) - 1);
+	$dir = implode("/", $dirs);
+
+	if (! file_exists($dir)) {
+		mkdir($dir, 0777, true);
+		chmod($dir, 0777);
+	}
+
+	// tam yol
+	$hedef = getcwd() . "/" . $hedef;
+	// bu bir uploaded dosya olmalı, fake dosyalara izin yok
+	if (is_uploaded_file($yuklenen)) {
+		// boyutu sınırla, değeri öylesine seçtim
+		if (filesize($yuklenen) > $fsz) {
+			F3::set('error', 'Resim çok büyük');
+		}
+		// şimdilik sadece JPEG, dosya tipini içine bakarak tespit ediyoruz
+		else if ($type != 'all' && exif_imagetype($yuklenen) != IMAGETYPE_JPEG) {
+			F3::set('error', 'Resim JPEG değil');
+		}
+		// dosyanın üzerine yazmayalım, ekstra güvenlik
+		// else if (!(!file_exists($hedef) || $uzerine_yazma)) {
+		else if (file_exists($hedef) && !($uzerine_yazma)) {
+			F3::set('error', 'Resim zaten kaydedilmiş');
+		}
+		// tamamdır, kalıcı kayıt yapalım
+		else if (!move_uploaded_file($yuklenen, $hedef)) {
+			F3::set('error', 'Dosya yükleme hatası');
+		} else {// yok başka bir ihtimal!, doğru yoldasın
+			$file_parts = pathinfo($hedef);
+
+			if($file_parts['extension'] == 'jpg') {
+					// image resizing
+					$klasor = $file_parts['dirname'] . "/";
+					$dosya = $hedef;
+					$resim = imagecreatefromjpeg($dosya);
+
+					$boyutlar = getimagesize($dosya);
+					$resimorani = 300 / $boyutlar[0];
+					$yeniyukseklik = $resimorani * $boyutlar[1];
+					$yeniresim = imagecreatetruecolor("300", $yeniyukseklik);
+					imagecopyresampled($yeniresim, $resim, 0, 0, 0, 0, "300", $yeniyukseklik,
+						$boyutlar[0], $boyutlar[1]);
+					$hedefdosya = $klasor . "kucuk". $file_parts['basename'];
+					imagejpeg($yeniresim, $hedefdosya, 100);
+					chmod($hedefdosya, 0755);
+			}
+			else {
+			echo "FOOOOOOOOOO";
+			}
+	
+		}
+			return true;
+	}
+	else {
+		// bu aslında bir atak işareti
+		F3::set('error', 'Dosya geçerli bir yükleme değil');
+	}
+
+	return false;
+}
 
 // ana pdf şsablonu
 function pdf($TABLE, $table) {
@@ -107,5 +186,4 @@ function pdf($TABLE, $table) {
 */
 	$pdf->Output();
 }
-
 ?>
