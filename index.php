@@ -1,8 +1,14 @@
 <?php
 
-require_once './lib/base.php';
-require_once './asset/lib.php';
+require_once 'lib/base.php';    // for f3
+require_once 'asset/lib.php';   // for class struct (ex: csv, upload)
+require_once 'config/init.php'; // for db connect
 
+function render($template, $title, $layout='layout') {
+	F3::set('title', $title);
+	F3::set('template', $template);
+	echo Template::serve($layout . '.htm');
+}
 function download() {
 	render('download', 'Tablo Indirme');
 }
@@ -35,15 +41,14 @@ function login() {
 	include 'config/session_table_field.php';
 
 	if (F3::get('SESSION.admin'))  return F3::call('home'); // f3.php'den fonksiyon çağırımı
-	render('login', 'Yönetici Paneli'); // adminlayout sadece login sayfası için
+	render('login', 'Yönetici Paneli');
 }
 
 F3::route("GET  /*",        'login');        // login page
 F3::route("POST /login",    'login.php');    // login action
-F3::route('GET  /logout',   'logout');       // logout action
+F3::route('GET  /logout',   'logout.php');   // logout action
 F3::route('POST /table',    'table.php');    // table action
 
-F3::route("GET  /printly",  'printly');
 F3::route("GET  /info",     'info');         // info page
 F3::route("GET  /review",   'review.php');   // review action
 F3::route("GET  /download", 'download');     // csv download page

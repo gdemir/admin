@@ -14,16 +14,16 @@
           <textarea name="{{@gnl}}">{{@blg}}</textarea>
           </F3:true>
           <F3:false>
-          <F3:check if="{{@gnl=='photo'}}">
-          <F3:true>
-          <input type="file" name="{{@gnl}}" id="{{@gnl}}" 
-          value="{{uploaddir}}/{{@blg}}" />
-          </F3:true>
-          <F3:false>
-          <input type="text" name="{{@gnl}}" id="{{@gnl}}" value="{{@blg}}" 
-          />
-          </F3:false>
-          </F3:check>
+            <F3:check if="{{@gnl=='photo'}}">
+            <F3:true>
+            <input type="file" name="{{@gnl}}" id="{{@gnl}}" 
+            value="{{uploaddir}}/{{@blg}}" />
+            </F3:true>
+            <F3:false>
+            <input type="text" name="{{@gnl}}" id="{{@gnl}}" value="{{@blg}}" 
+            />
+            </F3:false>
+            </F3:check>
           </F3:false>
         </td>
       </tr>

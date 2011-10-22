@@ -1,4 +1,4 @@
-<h2>{{@page_title}}</h2>
+<h2>Yönetici Paneli</h2>
 <p style="margin: 0 0 0px 167px;">Veritabanının ilgili tablosunu seçiniz.</p>
 <form name="login" action="table" method="POST" id="login"
   enctype="multipart/form-data">
@@ -10,10 +10,10 @@
           <F3:repeat group='{{@SESSION.TABLES}}' key='{{@table}}' >
           <F3:check if='{{@table==@SESSION.TABLE}}'>
           <F3:true>
-          <option value='{{@table}}' selected>{{e(@table)}}</option>
+          <option value='{{@table}}' selected>{{@table}}</option>
           </F3:true>
           <F3:false>
-          <option value='{{@table}}'>{{e(@table)}}</option>
+          <option value='{{@table}}'>{{@table}}</option>
           </F3:false>
           </F3:check>
           </F3:repeat>

@@ -3,27 +3,14 @@
 //
 // nerede bizim istediğimiz tablolar ?
 F3::set('SESSION.TABLES', array(
-				'people' => 'tc',
-				'drugs' => 'id',
-				'event' => 'event_id',
-				'survey' => 'survey_id',
-				'd_survey' => 'd_survey_id',
-				'patient' => 'patient_id',
-				'story' => 'story_id',
-				'result' => 'result_id',
-				'parent' => 'parent_id',
-				'discipline' => 'discipline_id',
-				'announcement' => 'announcement_id',
-				'node' => 'id',
-				'ncase' => 'cid',
-				'takip' => 'tid',
-				'tet' => 'id',
+				'admin' => 'username',
+				'people' => 'tc'
 			)
 		);
 // INIT
 //
 // login olursa, default olarak admin tablosu seçilsin
-F3::set('SESSION.TABLE_INIT', 'people');
+F3::set('SESSION.TABLE_INIT', 'admin');
 
 // FIELDS
 //
@@ -41,10 +28,5 @@ F3::set('SESSION.FIELDS', array(
 				'title' => true,
 				'content' => true,
 				'tc' => false,
-				'photo' => false,
-				'type' => false,
-				'topic' => false,
-				'skey' => false,
-				'zaman' => true,
 			));
 ?>

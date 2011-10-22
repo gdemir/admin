@@ -9,7 +9,7 @@
   } );
 </script>
 
-<h2>{{e(@SESSION.TABLE)}} tablosu inceleniyor</h2>
+<h2>{{@SESSION.TABLE}} tablosu inceleniyor</h2>
 
 <div class="dt_example module">
   <table cellpadding="0" cellspacing="0" border="0" class="display" 
@@ -19,7 +19,7 @@
 	<F3:repeat group="{{@fields}}" key="{{@gnl}}" value="{{@blg}}" >
 	<F3:check if="{{in(@blg, @SESSION.FIELDS) && @SESSION.FIELDS}}">
 	<F3:true>
-	<th>{{e(@blg)}}</th>
+	<th>{{@blg}}</th>
 	</F3:true>
 	</F3:repeat>
 	<th>İşlemler</th>
@@ -75,4 +75,3 @@
     </tbody>
   </table>
 </div>
-
