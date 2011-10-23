@@ -3,14 +3,14 @@
 //
 // nerede bizim istediğimiz tablolar ?
 F3::set('SESSION.TABLES', array(
-				'admin' => 'username',
+				'ondokuz' => 'username',
 				'people' => 'tc'
 			)
 		);
 // INIT
 //
 // login olursa, default olarak admin tablosu seçilsin
-F3::set('SESSION.TABLE_INIT', 'admin');
+F3::set('SESSION.TABLE_INIT', 'ondokuz');
 
 // FIELDS
 //
@@ -28,5 +28,7 @@ F3::set('SESSION.FIELDS', array(
 				'title' => true,
 				'content' => true,
 				'tc' => false,
+				'login' => false,
+				'logout' => false,
 			));
 ?>

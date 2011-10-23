@@ -94,8 +94,16 @@ table.custom td.captcha {
 
 #button-preview,
 #button-edit,
-#button-delete{background:url(/public/img/icon/24x24/search.png) no-repeat center;width:24px;height:24px;border:none;cursor:pointer;float:left;margin-right:10px;}
-#button-edit{background:url(/public/img/icon/24x24/edit.png) no-repeat center;}
-#button-delete{background:url(/public/img/icon/24x24/delete.png) no-repeat center;margin-right:0px;}
+#button-delete{
+    background:url(../img/search.png) no-repeat center;
+    width:24px;
+    height:24px;
+    border:none;
+    cursor:pointer;
+    float:left;
+    margin-right:10px;
+}
+#button-edit{background:url(../img/edit.png) no-repeat center;}
+#button-delete{background:url(../img/delete.png) no-repeat center;margin-right:0px;}
 
 

@@ -15,11 +15,13 @@ if (!$table->found("$KEY='$key'")) {
 			$table->$gnl = $blg;
 
 	$table->photo = F3::get('default_image'); // default resim
+
 	$table->save();
 
 	// resim isteğimiz var mı ?
 	$table = new Axon($TABLE);
 	$table->load("$KEY='$key'");
+
 
 	$up = new Upload();
 	if ($response = ($up->load($TABLE, $table->$KEY, F3::get("FILES.photo"), false)))
@@ -31,7 +33,9 @@ if (!$table->found("$KEY='$key'")) {
 	if (F3::exists('error')) // yükleme sırasında hata var mı?
 		return F3::call('add');
 
+
 	$table->save();
+
 
 	F3::set('SESSION.SAVE', count($table->find())); // yeni kayıt ekler eklemez toplam kayıtı bir artırsın
 	F3::set('SESSION.key', $table->$KEY);

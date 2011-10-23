@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS `admin` ;
+DROP TABLE IF EXISTS `ondokuz` ;
 
-CREATE  TABLE IF NOT EXISTS `admin` (
+CREATE  TABLE IF NOT EXISTS `ondokuz` (
   `username` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL ,
-  `firstname` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL ,
-  `lastname` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL ,
+  `firstname` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' ,
+  `lastname` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' ,
   `password` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL ,
   `status` INT(1) NOT NULL ,
   `login` DATETIME NOT NULL ,

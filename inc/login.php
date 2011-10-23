@@ -17,7 +17,7 @@ foreach (array('username', 'password') as $alan) {
 if (! F3::exists('error')) {
 	$username = F3::get('REQUEST.username');
 	$password = F3::get('REQUEST.password');
-	$admin = new Axon('admin');
+	$admin = new Axon('ondokuz');
 	$admin->load("username='$username'");
 
 	if (!$admin->dry() && streq_turkish($admin->password, $password)) {
@@ -27,10 +27,11 @@ if (! F3::exists('error')) {
                 F3::set('SESSION.adminpassword', $password);
                 F3::set('SESSION.admin', true);  // admin özelliği ekle
 
-                if ($admin->super)               // ek admin özellikleri ekle
+                if ($admin->status)               // ek admin özellikleri ekle
                         F3::set('SESSION.adminsuper', true);
                 F3::clear('error');
 
+                $admin->login = date('Y-m-d h:i:s');
                 $admin->save();
 
 		return F3::call('table.php'); // default tablo bilgilerimizi seçelim
