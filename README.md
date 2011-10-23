@@ -5,7 +5,7 @@
 - http://bil.omu.edu.tr/admin
 - http://servis.omu.edu.tr/admin
 - http://test.omu.edu.tr/admin
-- http://rails.ecylmz.com/admin
+- http://plan.a.ondokuz.biz/admin
 
 
 **f3-version: 2.0**
