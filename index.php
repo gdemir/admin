@@ -38,7 +38,7 @@ function review() {
 }
 function login() {
 	// tablo ve alanlarımız
-	include 'config/session_table_field.php';
+//	include 'config/session_table_field.php';
 
 	if (F3::get('SESSION.admin'))  return F3::call('home'); // f3.php'den fonksiyon çağırımı
 	page('login', 'Yönetici Paneli'); // adminlayout sadece login sayfası için

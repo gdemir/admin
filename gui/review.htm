@@ -18,7 +18,7 @@
     <thead>
       <tr>
 	<F3:repeat group="{{@fields}}" key="{{@gnl}}" value="{{@blg}}" >
-	<F3:check if="{{in(@blg, @SESSION.FIELDS) && @SESSION.FIELDS}}">
+	<F3:check if="{{in(@blg, @FIELDS) && @FIELDS}}">
 	<F3:true>
 	<th>{{@blg}}</th>
 	</F3:true>
@@ -31,7 +31,7 @@
       <F3:repeat group="{{@DB->result}}" key="{{@index}}" value="{{@row}}" >
       <tr>
 	<F3:repeat group="{{@row}}" key="{{@field}}" value="{{@value}}" >
-	<F3:check if="{{in(@field, @SESSION.FIELDS) && @SESSION.FIELDS}}">
+	<F3:check if="{{in(@field, @FIELDS) && @FIELDS}}">
 	<F3:true>
 	<F3:check if="{{@field=='photo'}}">
 	<F3:true>

@@ -3,10 +3,10 @@
 if (F3::exists('REQUEST.table'))
 	$TABLE = F3::get('REQUEST.table');
 else
-	$TABLE = F3::get('SESSION.TABLE_INIT');
+	$TABLE = F3::get('TABLEINIT');
 
 //tablolarımız : giris() fonskiyonundan set edilmişti alıyoruz
-$TABLES = F3::get('SESSION.TABLES');
+$TABLES = F3::get('TABLES');
 
 // tablomuzu ve tablomuzda kullanacağımız uniq key'imizi seçiyoruz.
 F3::set('SESSION.TABLE', $TABLE);

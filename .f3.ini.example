@@ -4,13 +4,31 @@ extlink="window.open(this.href); return false;"
 RELEASE="FALSE"
 IMPORTS="inc/"
 FONTS="public/fonts/"
+TEMP="temp/"
 GUI="gui/"
 
-; Veritabanı
-dbname="BANA_VERITABANI_VER"
-dbuser="BANA_KULLANICI_VER"
-dbpass="BANA_PAROLA_VER"
+; Veritabanı[DB]   -----------------
+dbname="sim"
+dbuser="sim"
+dbpass="12345"
 
-; Resim
+; Tablolar[Tables] ------------------
+TABLEINIT="ondokuz"
+TABLES.ondokuz="username"
+
+; example :
+; table.<table_name>=primary_key;
+
+; Alanlar[Fields]  ------------------
+FIELDS.id=false
+FIELDS.name=true
+FIELDS.tc=false
+FIELDS.photo=false
+FIELDS.login=false
+
+; example :
+; FIELDS.<field>=(true or false)
+
+; Resim            -----------------
 uploaddir="public/upload/"
 default_image="default.png"
