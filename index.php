@@ -1,47 +1,50 @@
 <?php
 
-require_once 'lib/base.php';    // for f3
-require_once 'asset/lib.php';   // for class struct (ex: csv, upload)
-require_once 'config/init.php'; // for db connect
+require_once  'lib/base.php';
+require_once  'asset/lib.php';
+require_once  'config/init.php';
 
-function render($template, $title, $layout='layout') {
+function page($title, $template, $layout='render') {
 	F3::set('title', $title);
 	F3::set('template', $template);
-	echo Template::serve($layout . '.htm');
+	F3::call($layout);
+}
+function render() {
+	echo Template::serve('layout.htm');
 }
 function download() {
-	render('download', 'Tablo Indirme');
+	page('Tablo Indirme', 'download');
 }
 function upload() {
-	render('upload', 'Tablo Yükleme');
+	page('Tablo Yükleme', 'upload');
 }
 function home() {
-	render('home', 'Yönetici Paneli');
+	page('Yönetici Paneli', 'home');
 }
 function info() {
-	render('info', 'Bilgilendirme Sayfası');
+	page('Bilgilendirme Sayfası', 'info');
 }
 function add() {
-	render('new', 'Kaydet');
+	page('Kaydet', 'new');
 }
 function edit() {
-	render('edit', 'Düzenle');
+	page('Düzenle', 'edit');
 }
 function find() {
-	render('find', 'Bul');
+	page('Bul', 'find');
 }
 function show() {
-	render('show', 'İnceleme Sonuçları');
+	page('İnceleme Sonuçları', 'show');
 }
 function review() {
-	render('review', 'Listelendi');
+	page('Listelendi', 'review');
 }
 function login() {
 	// tablo ve alanlarımız
 	include 'config/session_table_field.php';
 
 	if (F3::get('SESSION.admin'))  return F3::call('home'); // f3.php'den fonksiyon çağırımı
-	render('login', 'Yönetici Paneli');
+	page('Yönetici Paneli', 'login'); // adminlayout sadece login sayfası için
 }
 
 F3::route("GET  /*",        'login');        // login page

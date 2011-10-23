@@ -3,14 +3,14 @@
 #admin-panel li { float:left; width:114px; color:#3072b3; text-align:center; padding:0 auto; }
 #admin-panel li a { display:block;padding-top:50px;margin-top:0px;}
 #admin-panel li.table a, #admin-panel li.save a {cursor:auto;}
-#admin-panel li.table a     {background: url(../img/accept_database.png) no-repeat top center;}
-#admin-panel li.save a      {background: url(../img/save.png) no-repeat top center;}
-#admin-panel li.home a      {background: url(../img/database.png) no-repeat top center;}
-#admin-panel li.review a    {background: url(../img/search_page.png) no-repeat top center;}
-#admin-panel li.new a       {background: url(../img/add_to_database.png) no-repeat top center;}
-#admin-panel li.find a      {background: url(../img/search_database.png) no-repeat top center;}
-#admin-panel li.upload a    {background: url(../img/database_upload.png) no-repeat top center;}
-#admin-panel li.download a  {background: url(../img/download_database.png) no-repeat top center;}
+#admin-panel li.table a     {background: url(../images/accept_database.png) no-repeat top center;}
+#admin-panel li.save a      {background: url(../images/save.png) no-repeat top center;}
+#admin-panel li.home a      {background: url(../images/database.png) no-repeat top center;}
+#admin-panel li.review a    {background: url(../images/search_page.png) no-repeat top center;}
+#admin-panel li.new a       {background: url(../images/add_to_database.png) no-repeat top center;}
+#admin-panel li.find a      {background: url(../images/search_database.png) no-repeat top center;}
+#admin-panel li.upload a    {background: url(../images/database_upload.png) no-repeat top center;}
+#admin-panel li.download a  {background: url(../images/download_database.png) no-repeat top center;}
 
 
 /* ------------------------ custom table form ----------------------------- */
@@ -95,7 +95,7 @@ table.custom td.captcha {
 #button-preview,
 #button-edit,
 #button-delete{
-    background:url(../img/search.png) no-repeat center;
+    background:url(../images/search.png) no-repeat center;
     width:24px;
     height:24px;
     border:none;
@@ -103,7 +103,7 @@ table.custom td.captcha {
     float:left;
     margin-right:10px;
 }
-#button-edit{background:url(../img/edit.png) no-repeat center;}
-#button-delete{background:url(../img/delete.png) no-repeat center;margin-right:0px;}
+#button-edit{background:url(../images/edit.png) no-repeat center;}
+#button-delete{background:url(../images/delete.png) no-repeat center;margin-right:0px;}
 
 

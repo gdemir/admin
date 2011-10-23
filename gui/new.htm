@@ -8,19 +8,19 @@
         <td class="label"> {{@blg['Field']}} </td>
         <td class="field">
           <F3:check if="{{@blg['Field']=='content'}}">
-          <F3:true>
-          <textarea name="{{@blg['Field']}}"></textarea>
-          </F3:true>
-          <F3:false>
-          <F3:check if="{{@blg['Field']=='photo'}}">
-          <F3:true>
-          <input type="file" name="{{@blg['Field']}}"/>
-          </F3:true>
-          <F3:false>
-          <input type="text" name="{{@blg['Field']}}"/>
-          </F3:false>
-          </F3:check>
-          </F3:false>
+            <F3:true>
+              <textarea name="{{@blg['Field']}}"></textarea>
+            </F3:true>
+            <F3:false>
+              <F3:check if="{{@blg['Field']=='photo'}}">
+                <F3:true>
+                  <input type="file" name="{{@blg['Field']}}"/>
+                </F3:true>
+                <F3:false>
+                  <input type="text" name="{{@blg['Field']}}"/>
+                </F3:false>
+              </F3:check>
+            </F3:false>
           </F3:check>
         </td>
       </tr>

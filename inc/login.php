@@ -1,5 +1,7 @@
 <?php
 
+
+
 foreach (array('username', 'password') as $alan) {
         F3::input($alan,
                 function($value) use($alan) {
@@ -31,7 +33,7 @@ if (! F3::exists('error')) {
                         F3::set('SESSION.adminsuper', true);
                 F3::clear('error');
 
-                $admin->login = date('Y-m-d h:i:s');
+                $admin->login = date("Y-m-d h:i:s");
                 $admin->save();
 
 		return F3::call('table.php'); // default tablo bilgilerimizi seçelim

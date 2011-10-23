@@ -1,4 +1,5 @@
-<script type="text/javascript" src="public/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="public/javascripts/jquery.dataTables.js">
+</script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
@@ -21,8 +22,9 @@
 	<F3:true>
 	<th>{{@blg}}</th>
 	</F3:true>
+	</f3:check>
 	</F3:repeat>
-	<th>İşlemler</th>
+	<th>İşlemeler</th>
       </tr>
     </thead>
     <tbody>
@@ -34,11 +36,12 @@
 	<F3:check if="{{@field=='photo'}}">
 	<F3:true>
 	<td class="label">
-	  <img src="public/upload/{{@value}}" width="26" height="26"/>
+	  <img src="public/upload/{{@value}}"
+	  width="26" height="26"/>
 	</td>
 	</F3:true>
 	<F3:false>
-	<td class="label"> <!--çok uzun metinleri burada kısaltalım-->
+	<td class="label">
 	  <F3:check if="{{strlen(@value)>100}}">
 	  <F3:true>{{substr(@value, 0, 97)}}...</F3:true>
 	  <F3:false>{{@value}}</F3:false>

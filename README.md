@@ -10,7 +10,7 @@
 
 **f3-version: 2.0**
 
-![foto](https://github.com/gdemir/admin/raw/master/public/img/logo.png)
+![foto](https://github.com/gdemir/admin/raw/master/public/images/logo.png)
 
 Her servis'e lazım bir admin paneli
 --

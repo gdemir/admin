@@ -1,8 +1,7 @@
 <?php
-
 include 'init.php';
-include 'upload.php';
 include 'csv.php';
+include 'upload.php';
 
 function in($item, $fields) {
 	foreach ($fields as $field => $type) {

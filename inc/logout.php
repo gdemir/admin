@@ -2,10 +2,10 @@
 
 if (F3::get('SESSION.admin')) {
 	// for logout time
-	$username = F3::get('SESSION.adminusername');
 	$admin = new Axon('ondokuz');
+	$username = F3::get('SESSION.adminusername');
 	$admin->load("username='$username'");
-	$admin->logout = date('Y-m-d h:i:s');
+	$admin->logout = date("Y-m-d h:i:s");
 	$admin->save();
 
 	F3::clear('SESSION.adminusername'); // admin özelliği sil
