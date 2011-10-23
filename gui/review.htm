@@ -25,7 +25,7 @@
       </tr>
     </thead>
     <tbody>
-      <F3:repeat group="{{@DB->result}}" key="{{@index}}" value="{{@row}}" >
+      <F3:repeat group="{{@DB->result}}" value="{{@row}}" >
       <tr>
         <F3:repeat group="{{@row}}" key="{{@field}}" value="{{@value}}" >
         <F3:check if="{{in(@field, @FIELDS) && @FIELDS}}">
