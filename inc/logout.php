@@ -1,5 +1,4 @@
 <?php
-
 if (F3::get('SESSION.admin')) {
 	// for logout time
 	$admin = new Axon('ondokuz');

@@ -1,8 +1,8 @@
 <?php
 
-require_once  'lib/base.php';
-require_once  'asset/lib.php';
-require_once  'config/init.php';
+require_once  'lib/base.php';    // for fat-free
+require_once  'asset/lib.php';   // for plug-in
+require_once  'config/init.php'; // for db connect
 
 function page($template, $title, $layout='layout') {
 	F3::set('title', $title);
@@ -37,6 +37,7 @@ function review() {
 	page('review', 'Listelendi');
 }
 function login() {
+	require_once 'config/db.php'; // for create table
 	if (F3::get('SESSION.admin'))  return F3::call('home'); // f3.php'den fonksiyon çağırımı
 	page('login', 'Yönetici Paneli');
 }

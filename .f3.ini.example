@@ -6,6 +6,7 @@ IMPORTS="inc/"
 FONTS="public/fonts/"
 TEMP="temp/"
 GUI="gui/"
+TABLE="ondokuz"
 
 ; Veritabanı[DB]   -----------------
 dbname="sim"
@@ -15,6 +16,7 @@ dbpass="12345"
 ; Tablolar[Tables] ------------------
 TABLEINIT="ondokuz"
 TABLES.ondokuz="username"
+TABLES.people="tc"
 
 ; example :
 ; table.<table_name>=primary_key;
