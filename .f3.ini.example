@@ -1,12 +1,13 @@
 [globals]
 ; F3 magic'leri
 extlink="window.open(this.href); return false;"
+AUTOLOAD="app/"
 RELEASE="FALSE"
-IMPORTS="inc/"
 FONTS="public/fonts/"
 TEMP="temp/"
 GUI="gui/"
 TABLE="ondokuz"
+KEY="username"
 
 ; Veritabanı[DB]   -----------------
 dbname="sim"
@@ -17,6 +18,9 @@ dbpass="12345"
 TABLEINIT="ondokuz"
 TABLES.ondokuz="username"
 TABLES.people="tc"
+TABLES.event="event_id"
+TABLES.event="event_id"
+TABLES.announcement="announcement_id"
 
 ; example :
 ; table.<table_name>=primary_key;
@@ -33,4 +37,4 @@ FIELDS.login=false
 
 ; Resim            -----------------
 uploaddir="public/upload/"
-default_image="default.png"
+DEFAULT_IMAGE="default.png"

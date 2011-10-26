@@ -7,7 +7,7 @@
 #admin-panel li.save a      {background: url(../images/save.png) no-repeat top center;}
 #admin-panel li.home a      {background: url(../images/database.png) no-repeat top center;}
 #admin-panel li.review a    {background: url(../images/search_page.png) no-repeat top center;}
-#admin-panel li.new a       {background: url(../images/add_to_database.png) no-repeat top center;}
+#admin-panel li.create a    {background: url(../images/add_to_database.png) no-repeat top center;}
 #admin-panel li.find a      {background: url(../images/search_database.png) no-repeat top center;}
 #admin-panel li.upload a    {background: url(../images/database_upload.png) no-repeat top center;}
 #admin-panel li.download a  {background: url(../images/download_database.png) no-repeat top center;}

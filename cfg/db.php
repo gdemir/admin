@@ -1,6 +1,6 @@
 <?php
 
-$sql = explode(';', file_get_contents('config/schema.db'));
+$sql = explode(';', file_get_contents('cfg/schema.db'));
 foreach ($sql as $raw)
 	if ($query = trim($raw))
 		DB::sql($query);

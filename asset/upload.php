@@ -49,6 +49,8 @@ class Upload {
 
 		// yüklenen dosya yok ise sessiz çıkış
 		if (empty($uploaded)) return false;
+		// resim ismi yok ise sessiz çıkış
+		if (empty($savename)) return false;
 
 		$extension = false;
 		foreach ($this->_upload['type'] as $type)
@@ -89,6 +91,8 @@ class Upload {
 		return false; // sessiz çıkış
 	}
 	public function erase($directory, $savename) {
+		// resim ismi yok ise sessiz çıkış
+		if (empty($savename)) return false;
 		$image = $this->_upload['path'] . "/" . $savename;
 		if (file_exists($image)) unlink($image);
 	}

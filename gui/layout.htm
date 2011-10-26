@@ -5,8 +5,10 @@
     <meta http-equiv = "Expires" content = "-1" />
     <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
     <link rel="shortcut icon" href="public/images/favicon.ico" />
-    <link rel="stylesheet"type="text/css" href="public/stylesheets/style.css" />
-    <script type='text/javascript' src='public/javascripts/jquery.js'></script>
+    <link rel="stylesheet"type="text/css" 
+    href="{{@SR}}/public/stylesheets/style.css" />
+    <script type='text/javascript' 
+      src='{{@SR}}/public/javascripts/jquery.js'></script>
 
     <title>{{@title}}</title>
   </head>
@@ -18,42 +20,53 @@
       <div id="container">
         <ul class="tabs" id="mainNav">
           <li class="home"><a href="{{@SR}}">{{@SESSION.adminusername}}</a></li>
-          <li class="blue"> <a href="info">{{'Bilgilendirme'}}</a></li>
-          <li class="logout"><a href="logout">{{'Çıkış'}}</a></li>
+          <li class="blue"> <a href="{{@SR}}/info">{{'Bilgilendirme'}}</a></li>
+          <li class="logout"><a href="{{@SR}}/logout">{{'Çıkış'}}</a></li>
         </ul>
       </div>
     </div>
     </F3:true>
     </F3:check>
 
-    <F3:check if="{{@success}}">
+    <F3:check if="{{@SESSION.success}}">
     <F3:true>
     <div id="notice">
       <div class="success">
         <h3 id="successline">Bir başarı iletisi var</h3>
-        {{@success}}
+        {{@SESSION.success}}
       </div>
     </div>
     </F3:true>
     </F3:check>
 
-    <F3:check if="{{@error}}">
+    <F3:check if="{{@SESSION.error}}">
     <F3:true>
     <div id="notice">
       <div class="error">
         <h3 id="errorline">Bir problemimiz var!</h3>
-        {{@error}}
+        {{@SESSION.error}}
       </div>
     </div>
     </F3:true>
     </F3:check>
 
-    <F3:check if="{{@warning}}">
+    <F3:check if="{{@SESSION.warning}}">
     <F3:true>
     <div id="notice">
       <div class="warning">
         <h3 id="warningline">Bir uyarımız var</h3>
-        {{@warning}}
+        {{@SESSION.warning}}
+      </div>
+    </div>
+    </F3:true>
+    </F3:check>
+
+    <F3:check if="{{@SESSION.info}}">
+    <F3:true>
+    <div id="notice">
+      <div class="info">
+        <h3 id="infoline">Bir bilgimiz var</h3>
+        {{@SESSION.info}}
       </div>
     </div>
     </F3:true>
@@ -68,11 +81,11 @@
           <li class="table"><a>{{@SESSION.TABLE}}</a></li>
           <li class="save"><a>{{@SESSION.SAVE}}</a></li>
           <li class="home"><a href="{{@SR}}">Tablolar</a></li>
-          <li class="new"><a href="new">Ekle</a></li>
-          <li class="find"><a href="find">Ara</a></li>
-          <li class="review"><a href="review">Tablo İncele</a></li>
-          <li class="upload"><a href="upload">Csv Yükle</a></li>
-          <li class="download"><a href="download">Csv Çıktı</a></li>
+          <li class="create"><a href="{{@SR}}/create">Ekle</a></li>
+          <li class="find"><a href="{{@SR}}/find">Ara</a></li>
+          <li class="review"><a href="{{@SR}}/review">Tablo İncele</a></li>
+          <li class="upload"><a href="{{@SR}}/upload">Csv Yükle</a></li>
+          <li class="download"><a href="{{@SR}}/download">Csv Çıktı</a></li>
         </ul>
       </div>
       </F3:true>

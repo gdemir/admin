@@ -1,30 +1,38 @@
 <h2>İnceleme Sonuçları</h2>
 <table class="custom">
   <tr>
-    <b>{{@SESSION.key}}</b> id'sine ait tüm bilgiler
-    <F3:repeat group="{{@SESSION.data}}" key="{{@field}}" value="{{@value}}" >
-    <F3:check if="{{@field != @SESSION.KEY}}">
+    <F3:repeat group="{{@SESSION.DATA}}" key="{{@field}}" value="{{@value}}" >
     <tr>
-      <td class="label"> {{@field}} </td>
-      <td class="field">
-      <F3:check if="{{@field == 'photo'}}">
-        <F3:true> <img src="public/upload/{{@value}}" width="128" height="128"/></F3:true>
+    <td class="label"> {{@field}} </td>
+    <td class="field">
+      <F3:check if="{{@field == @SESSION.KEY}}">
+      <F3:true><h1 id="successline">{{@value}}</h1></F3:true>
+      <F3:false>
+        <F3:check if="{{@field == 'photo'}}">
+        <F3:true>
+          <F3:check if="{{@value}}">
+          <F3:true>  <img src="{{@SR}}/public/upload/{{@value}}" width="128" height="128"/></F3:true>
+          <F3:false> <img src="{{@SR}}/public/upload/{{@DEFAULT_IMAGE}}" width="128" height="128"/></F3:false>
+          </F3:check>
+        </F3:true>
         <F3:false>{{@value}}</F3:false>
+        </F3:check>
+      </F3:false>
       </F3:check>
+    </td>
     </tr>
-    </F3:check>
     </F3:repeat>
   </tr>
   <tr>
     <td></td>
     <td>
-      <form name="login" action="edit" method="POST" id="login">
+      <a href="{{@SR}}/edit/{{array_key(@SESSION.KEY, @SESSION.DATA)}}">
         <input type="submit" class="button-submit" value="Düzenle" />
-      </form>
-      <form name="login" action="del" method="POST" id="login">
+      </a>
+      <a href="{{@SR}}/erase/{{array_key(@SESSION.KEY, @SESSION.DATA)}}">
         <input type="submit" class="button-submit" value="Sil"
         onClick="return confirm('Silmek istediğinizden emin misiniz?');"/>
-      </form>
+      </a>
     </td>
   </tr>
 </table>

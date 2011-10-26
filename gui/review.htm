@@ -16,8 +16,8 @@
   <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
     <thead>
       <tr>
-        <F3:repeat group="{{@fields}}" value="{{@field}}" >
-        <F3:check if="{{in(@field, @FIELDS) && @FIELDS}}">
+        <F3:repeat group="{{@SESSION.FIELDS}}" value="{{@field}}" >
+        <F3:check if="{{array_in(@field, @FIELDS) && @FIELDS}}">
           <th>{{@field}}</th>
         </f3:check>
         </F3:repeat>
@@ -28,16 +28,21 @@
       <F3:repeat group="{{@DB->result}}" value="{{@row}}" >
       <tr>
         <F3:repeat group="{{@row}}" key="{{@field}}" value="{{@value}}" >
-        <F3:check if="{{in(@field, @FIELDS) && @FIELDS}}">
+        <F3:check if="{{array_in(@field, @FIELDS) && @FIELDS}}">
           <td class="label">
-          <F3:check if="{{@field=='photo'}}">
-            <F3:true><img src="public/upload/{{@value}}"width="26" height="26"/></F3:true>
-            <F3:false>
-              <F3:check if="{{strlen(@value)>100}}">
-                <F3:true>{{substr(@value, 0, 97)}}...</F3:true>
-                <F3:false>{{@value}}</F3:false>
-              </f3:check>
-            </F3:false>
+          <F3:check if="{{@field == 'photo'}}">
+          <F3:true>
+            <F3:check if="{{@value}}">
+              <F3:true>  <img src="{{@SR}}/public/upload/{{@value}}" width="26" height="26"/></F3:true>
+              <F3:false> <img src="{{@SR}}/public/upload/{{@DEFAULT_IMAGE}}" width="26" height="26"/></F3:false>
+            </F3:check>
+          </F3:true>
+          <F3:false>
+            <F3:check if="{{strlen(@value)>100}}">
+            <F3:true>{{substr(@value, 0, 97)}}...</F3:true>
+            <F3:false>{{@value}}</F3:false>
+            </f3:check>
+          </F3:false>
           </F3:check>
           </td>
         </F3:check>
@@ -45,19 +50,16 @@
         <F3:repeat group="{{@row}}" key="{{@field}}" value="{{@value}}" >
         <F3:check if="{{@field == @SESSION.KEY}}">
           <td class="label" style="float:left;width:92px">
-            <form name="login" action="find" method="POST" id="login" >
-              <input type="hidden" name="key" id="key" value="{{@value}}" />
+            <a href="show/{{@value}}">
               <input type="submit" id="button-preview" title="İncele" value="">
-            </form>
-            <form name="login" action="edit" method="POST" id="login" >
-              <input type="hidden" name="key" id="key" value="{{@value}}" />
+            </a>
+            <a href="edit/{{@value}}">
               <input type="submit" id="button-edit" title="Düzenle" value="">
-            </form>
-            <form name="login" action="del" method="POST" id="login" >
-              <input type="hidden" name="key" id="key" value="{{@value}}" />
+            </a>
+            <a href="erase/{{@value}}">
               <input type="submit" id="button-delete" title="Sil" value=""
                 onClick="return confirm('Silmek istediğinizden emin misiniz?');"/>
-            </form>
+            </a>
           </td>
         </F3:check>
         </F3:repeat>

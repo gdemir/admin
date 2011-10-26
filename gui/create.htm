@@ -1,7 +1,7 @@
 <h2>Yeni Kayıt</h2>
-<form name="login" action="add" method="POST" id="login" enctype="multipart/form-data">
+<form name="login" action="save" method="POST" id="login" enctype="multipart/form-data">
   <table class="custom">
-    <F3:repeat group="{{@fields}}" value="{{@field}}">
+    <F3:repeat group="{{@SESSION.FIELDS}}" value="{{@field}}">
     <tr>
       <td class="label"> {{@field}} </td>
       <td class="field">
