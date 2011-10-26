@@ -34,16 +34,16 @@ class Datas extends F3instance {
 		// yeni kayıt, kayıt sayısı
 		F3::set('SESSION.SAVE', count($table->find()));
 
-		F3::clear('SESSION.warning');F3::clear('SESSION.info');
 		F3::set('SESSION.success', $table->$KEY . " bilgisine sahip kişi $TABLE tablosuna başarıyla eklendi.");
 		return F3::reroute('/show/' . $key);
 	}
 	function find() {
+		F3::clear('SESSION.success');F3::clear('SESSION.error');
+
 		$this->_checkkey();
 
 		$table = new Axon(F3::get('SESSION.TABLE'));
 		if ($table->found(F3::get('SESSION.KEY') . "='" . F3::get('REQUEST.key') ."'")) {
-			F3::clear('SESSION.warning');F3::clear('SESSION.info');F3::clear('SESSION.error');
 			return F3::reroute('/show/' . F3::get('REQUEST.key'));
 		} else
 			F3::set('SESSION.error', "Böyle bir kayıt bulunmamaktadır");
@@ -61,7 +61,7 @@ class Datas extends F3instance {
 
 		process(F3::get('PARAMS.key'), "silindi"); // process takip
 
-		F3::set('SESSION.info', F3::get('PARAMS.key') . " ye ait bilgiler başarıyla silindi");
+		F3::set('SESSION.error', F3::get('PARAMS.key') . " ye ait bilgiler başarıyla silindi");
 		F3::reroute('/find');
 	}
 	function show() {
@@ -84,7 +84,7 @@ class Datas extends F3instance {
 
 		$table = new Axon($TABLE);
 		if ($key != $request_key && $table->found("$KEY='$request_key'")) {
-			F3::set('SESSION.warning', "$KEY = $request_key olan bir kayıt var, güncelleme gerçekleşmedi");
+			F3::set('SESSION.error', "$KEY = $request_key olan bir kayıt var, güncelleme gerçekleşmedi");
 			return F3::reroute('/show/' . $request_key);
 		}
 		$datas = $table->afind("$KEY='$request_key'"); // process takip için

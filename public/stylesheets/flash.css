@@ -1,5 +1,5 @@
 #notice {margin:auto;width:960px;}
-.success, .error, .warning, .info {
+.success, .error {
 	width:       400px;
 	padding:     8px 20px 10px;
 	margin-top:   -30px;
@@ -23,19 +23,7 @@
 	background:#f0d9c8;
 	color:#9c4c33;
 }
-.warning {
-	border:solid 1px #e38900;
-	border-top-color: #d58100;
-	border-left-color:#d58100;
-	background:#feefb3;
-	color:#9f6000;
-}
-.info {
-	border:solid 1px #399ee3;
-	background:#8abfe3;
-	color:#005b99;
-}
-#successline, #errorline, #warningline, #infoline {
+#successline, #errorline {
 	color:#468012;
 	margin-bottom:5px;
 	font-size:11px;
@@ -43,12 +31,6 @@
 }
 #errorline {
 	color:#763926;
-}
-#warningline {
-	color:#bd7005;
-}
-#infoline {
-	color:#0080d9;
 }
 #boxline {
 	color:#888888;

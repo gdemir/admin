@@ -11,23 +11,22 @@ class Page extends F3instance {
 			F3::clear('SESSION.' . $notice);
 	}
 	function login() {
-		$this->_clear(array('warning', 'info'));
 		$this->_page('login', 'Yönetici Paneli');
 	}
 	function home() {
-		$this->_clear(array('error', 'warning', 'info'));
+		$this->_clear(array('error'));
 		$this->_page('home', 'Yönetici Paneli');
 	}
 	function info() {
-		$this->_clear(array('success', 'error', 'warning', 'info'));
+		$this->_clear(array('success', 'error'));
 		$this->_page('info', 'Bilgilendirme Sayfası');
 	}
 	function create() {
-		$this->_clear(array('success', 'warning', 'info'));
+		$this->_clear(array('success'));
 		$this->_page('create', 'Kaydet');
 	}
 	function review() {
-		$this->_clear(array('success', 'error', 'warning', 'info'));
+		$this->_clear(array('success', 'error'));
 		$table = new Axon(F3::get('SESSION.TABLE'));
 		$table->afind();
 		$this->_page('review', 'Listelendi');
