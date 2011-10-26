@@ -17,3 +17,24 @@
     </tr>
   </table>
 </form>
+
+<!-- slide -->
+<!-- kaynak : http://www.htmldrive.net/items/show/1069/Auto-Scroll-News-Ticker-with-jQuery  -->
+<div id="textslide">
+  <h2>Process</h2>
+  <ul id="ticker" class="ticker">
+    <F3:repeat group="{{@SESSION.ROWS}}" value="{{@row}}" >
+      <li>
+      <b>{{@row.username}}</b> | <b>{{@row.tablename}}</b> tablosunda 
+      <b>{{@row.keyname}}</b> nolu kişiyi <b>{{@row.name}}</b>  </li>
+    </F3:repeat>
+  </ul>
+</div>
+
+<script>
+  function tick(){
+    $('#ticker li:first').slideUp( function () { $(this).appendTo($('#ticker')).slideDown(); });
+  }
+  setInterval(function(){ tick () }, 3000);
+</script>
+<!-- end slide -->

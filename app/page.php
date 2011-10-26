@@ -28,7 +28,7 @@ class Page extends F3instance {
 	function review() {
 		$this->_clear(array('success', 'error'));
 		$table = new Axon(F3::get('SESSION.TABLE'));
-		$table->afind();
+		F3::set('ROWS', $table->afind());
 		$this->_page('review', 'Listelendi');
 	}
 	function find() {

@@ -29,7 +29,7 @@ class Datas extends F3instance {
 		if (F3::exists('SESSION.error')) return F3::call('Datas->create'); // yüklemede hata var mı?
 		$table->save();
 
-		process($key, $_POST); // process takip
+		process($key, $_POST, 'ekledi'); // process takip
 
 		// yeni kayıt, kayıt sayısı
 		F3::set('SESSION.SAVE', count($table->find()));
@@ -51,6 +51,7 @@ class Datas extends F3instance {
 	}
 	function erase() {
 		$table = new Axon(F3::get('SESSION.TABLE'));
+		$datas = $table->afind("$KEY='$request_key'"); // process takip için
 		$table->load(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
 
 		$up = new Upload();
@@ -59,7 +60,7 @@ class Datas extends F3instance {
 		$table->erase();
 		F3::set('SESSION.SAVE', F3::get('SESSION.SAVE') - 1);
 
-		process(F3::get('PARAMS.key'), "silindi"); // process takip
+		process(F3::get('PARAMS.key'), http_build_query($datas[0]), 'sildi'); // process takip
 
 		F3::set('SESSION.error', F3::get('PARAMS.key') . " ye ait bilgiler başarıyla silindi");
 		F3::reroute('/find');
@@ -110,7 +111,7 @@ class Datas extends F3instance {
 
 		$table->save();
 
-		process($request_key, http_build_query($datas[0])); // process takip
+		process($request_key, http_build_query($datas[0]), 'güncelledi'); // process takip
 
 		return F3::reroute('/show/' . $request_key);
 	}
@@ -189,6 +190,8 @@ class Datas extends F3instance {
 			array_push($fields, $field['Field']);
 		F3::set('SESSION.FIELDS', $fields);
 
+		$process = new Axon(F3::get('TABLEPROCESS'));
+		F3::set('SESSION.ROWS', $process->afind());
 		F3::set('SESSION.success', "$TABLE tablosu başarıyla seçildi.");
 		F3::call('Page->home');
 	}
