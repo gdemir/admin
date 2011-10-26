@@ -18,15 +18,27 @@
   </table>
 </form>
 
+<h2 style="width:600px">Son 10 İşlem</h2>
+<img src="public/images/page_process.png" width="64" height="64"/>
 <!-- slide -->
 <!-- kaynak : http://www.htmldrive.net/items/show/1069/Auto-Scroll-News-Ticker-with-jQuery  -->
-<div id="textslide">
-  <h2>Process</h2>
-  <ul id="ticker" class="ticker">
-    <F3:repeat group="{{@SESSION.ROWS}}" value="{{@row}}" >
-      <li>
-      <b>{{@row.username}}</b> | <b>{{@row.tablename}}</b> tablosunda 
-      <b>{{@row.keyname}}</b> nolu kişiyi <b>{{@row.name}}</b>  </li>
+<div id="textslide" style="margin-left:100px;margin-top:-50px;width:550px;">
+  <ul id="ticker" class="ticker" style="width:550px;">
+    <F3:repeat group="{{@SESSION.PROCESS}}" value="{{@row}}" >
+    <li id="process">
+      <table>
+        <tr>
+          <td>
+            <b>{{@row.time}} |</b>
+            <b> {{@row.username}} »</b>
+          </td>
+          <td>
+            <b>{{@row.tablename}}</b> tablosunda <b>{{@row.keyname}}</b> 
+            bilgisini <b>{{@row.name}}</b>
+          </td>
+        </tr>
+      </table>
+    </li>
     </F3:repeat>
   </ul>
 </div>
@@ -38,3 +50,21 @@
   setInterval(function(){ tick () }, 3000);
 </script>
 <!-- end slide -->
+
+<div style="margin-top:-525px;margin-left:675px">
+<h2 style="width:180px;margin-bottom:40px">Adminler</h2>
+  <ul id="ticker" class="ticker" style="width:250px;">
+    <F3:repeat group="{{@SESSION.ADMINLOGIN}}" value="{{@row}}" >
+    <li id="connect">
+      <b>{{@row.username}}</b> »
+      <b>{{@row.login}} </b>
+    </li>
+    </F3:repeat>
+    <F3:repeat group="{{@SESSION.ADMIN}}" value="{{@row}}" >
+    <li id="unconnect">
+      <b>{{@row.username}}</b> »
+      <b>{{@row.login}} </b>
+    </li>
+    </F3:repeat>
+  </ul>
+</div>

@@ -9,6 +9,14 @@ function process($keyname, $content, $name) {
 	$process->content = $content;
 	$process->name = $name;
 	$process->save();
+
+	$process = new Axon(F3::get('TABLEPROCESS'));
+	DB::sql('select * from ' . F3::get('TABLEPROCESS') .' ORDER BY time DESC LIMIT 10');
+	F3::set('SESSION.PROCESS', F3::get('DB->result'));
+
+	$table = new Axon(F3::get('TABLE'));
+	DB::sql('select * from ' . F3::get('TABLE') .' ORDER BY login DESC LIMIT 3');
+	F3::set('SESSION.ADMIN', F3::get('DB->result'));
 }
 
 ?>

@@ -14,6 +14,17 @@ class Page extends F3instance {
 		$this->_page('login', 'Yönetici Paneli');
 	}
 	function home() {
+		$process = new Axon(F3::get('TABLEPROCESS'));
+		DB::sql('SELECT * FROM ' . F3::get('TABLEPROCESS') .' ORDER BY time DESC LIMIT 10');
+		F3::set('SESSION.PROCESS', F3::get('DB->result')); // last 10 process
+
+		$table = new Axon(F3::get('TABLE'));
+		DB::sql('SELECT * FROM ' . F3::get('TABLE') .' WHERE login < logout');
+		F3::set('SESSION.ADMIN', F3::get('DB->result')); // last login admin
+
+		$table = new Axon(F3::get('TABLE'));
+		DB::sql('SELECT * FROM ' . F3::get('TABLE') .' WHERE login > logout');
+		F3::set('SESSION.ADMINLOGIN', F3::get('DB->result')); // login user
 		$this->_clear(array('error'));
 		$this->_page('home', 'Yönetici Paneli');
 	}

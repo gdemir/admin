@@ -190,10 +190,9 @@ class Datas extends F3instance {
 			array_push($fields, $field['Field']);
 		F3::set('SESSION.FIELDS', $fields);
 
-		$process = new Axon(F3::get('TABLEPROCESS'));
-		F3::set('SESSION.ROWS', $process->afind());
+
 		F3::set('SESSION.success', "$TABLE tablosu başarıyla seçildi.");
-		F3::call('Page->home');
+		F3::reroute('/home');
 	}
 	function _checkkey() {
 		foreach (array('key') as $alan) {

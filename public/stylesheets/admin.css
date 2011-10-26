@@ -106,4 +106,9 @@ table.custom td.captcha {
 #button-edit{background:url(../images/edit.png) no-repeat center;}
 #button-delete{background:url(../images/delete.png) no-repeat center;margin-right:0px;}
 
+/* -------------------------------------------------------------------- */
 
+#connect{background:url(../images/connect.png) no-repeat 0% ;padding-left:40px;}
+#unconnect{background:url(../images/unconnect.png) no-repeat 0% ;padding-left:40px;}
+
+#process{background:url(../images/process.png) no-repeat 0% ;padding-left:50px;}
