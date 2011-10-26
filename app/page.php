@@ -35,29 +35,10 @@ class Page extends F3instance {
 	function find() {
 		$this->_page('find', 'Bul');
 	}
-	function erase() {
-		$table = new Axon(F3::get('SESSION.TABLE'));
-		$table->load(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
-
-		$up = new Upload();
-		$up->erase(F3::get('SESSION.TABLE'), $table->photo);
-
-		$table->erase();
-		F3::set('SESSION.SAVE', F3::get('SESSION.SAVE') - 1);
-
-		F3::set('SESSION.info', F3::get('PARAMS.key') . " ye ait bilgiler başarıyla silindi");
-		F3::reroute('/find');
-	}
 	function show() {
-		$table = new Axon(F3::get('SESSION.TABLE'));
-		$datas = $table->afind(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
-		F3::set('SESSION.DATA', $datas[0]);
 		$this->_page('show', 'İnceleme Sonuçları');
 	}
 	function edit() {
-		$table = new Axon(F3::get('SESSION.TABLE'));
-		$datas = $table->afind(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
-		F3::set('SESSION.DATA', $datas[0]);
 		$this->_page('edit', 'düzenle');
 	}
 	function upload() {

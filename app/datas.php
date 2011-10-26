@@ -49,8 +49,32 @@ class Datas extends F3instance {
 			F3::set('SESSION.error', "Böyle bir kayıt bulunmamaktadır");
 		F3::call('Page->find');
 	}
-	function update() {
+	function erase() {
+		$table = new Axon(F3::get('SESSION.TABLE'));
+		$table->load(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
 
+		$up = new Upload();
+		$up->erase(F3::get('SESSION.TABLE'), $table->photo);
+
+		$table->erase();
+		F3::set('SESSION.SAVE', F3::get('SESSION.SAVE') - 1);
+
+		F3::set('SESSION.info', F3::get('PARAMS.key') . " ye ait bilgiler başarıyla silindi");
+		F3::reroute('/find');
+	}
+	function show() {
+		$table = new Axon(F3::get('SESSION.TABLE'));
+		$datas = $table->afind(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
+		F3::set('SESSION.DATA', $datas[0]);
+		F3::call('Page->show');
+	}
+	function edit() {
+		$table = new Axon(F3::get('SESSION.TABLE'));
+		$datas = $table->afind(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");
+		F3::set('SESSION.DATA', $datas[0]);
+		F3::call('Page->edit');
+	}
+	function update() {
 		$TABLE = F3::get('SESSION.TABLE');
 		$KEY   = F3::get('SESSION.KEY');
 		$request_key   = F3::get('REQUEST.' . $KEY);

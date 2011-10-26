@@ -21,9 +21,9 @@ F3::route("POST /find",       'Datas->find');     // find action
 
 F3::route("GET  /review",     'Page->review');    // review page
 
-F3::route("GET  /edit/@key",  'Page->edit');      // edit page
-F3::route("GET  /show/@key",  'Page->show');      // show page
-F3::route("GET  /erase/@key", 'Page->erase');     // del page
+F3::route("GET  /edit/@key",  'Datas->edit');      // edit page
+F3::route("GET  /show/@key",  'Datas->show');      // show page
+F3::route("GET  /erase/@key", 'Datas->erase');     // del page
 
 F3::route("POST /update",     'Datas->update');   // update action
 
