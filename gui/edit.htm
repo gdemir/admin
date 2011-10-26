@@ -9,18 +9,25 @@
       <F3:check if="{{@field == @SESSION.KEY}}">
       <F3:true>
       <input type="hidden" name="key" value="{{@value}}"/>
-      <input type="text" name="{{@field}}" value="{{@value}}"/>
+        <F3:check if="{{@SESSION.adminsuper}}">
+        <F3:true>
+        <input type="text" name="{{@field}}" value="{{@value}}"/>
         </F3:true>
-        <F3:false>
-          <F3:check if="{{@field=='content'}}">
-	      <F3:true>   <textarea name="{{@field}}">{{@value}}</textarea></F3:true>
-              <F3:false><F3:check if="{{@field=='photo'}}">
-                <F3:true> <input type="file" name="{{@field}}" value="public/upload/{{@value}}"/></F3:true>
-                <F3:false><input type="text" name="{{@field}}" value="{{@value}}"/></F3:false>
-              </F3:check>
-              </F3:false>
-          </F3:check>
+        <F3:false>{{@value}}
+        <input type="hidden" name="{{@field}}" value="{{@value}}"/>
         </F3:false>
+        </F3:check>
+      </F3:true>
+      <F3:false>
+        <F3:check if="{{@field=='content'}}">
+          <F3:true>   <textarea name="{{@field}}">{{@value}}</textarea></F3:true>
+          <F3:false><F3:check if="{{@field=='photo'}}">
+            <F3:true> <input type="file" name="{{@field}}" value="public/upload/{{@value}}"/></F3:true>
+            <F3:false><input type="text" name="{{@field}}" value="{{@value}}"/></F3:false>
+          </F3:check>
+          </F3:false>
+        </F3:check>
+      </F3:false>
       </F3:check>
       </td>
     </tr>

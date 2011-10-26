@@ -50,28 +50,6 @@
     </F3:true>
     </F3:check>
 
-    <F3:check if="{{@SESSION.warning}}">
-    <F3:true>
-    <div id="notice">
-      <div class="warning">
-        <h3 id="warningline">Bir uyarımız var</h3>
-        {{@SESSION.warning}}
-      </div>
-    </div>
-    </F3:true>
-    </F3:check>
-
-    <F3:check if="{{@SESSION.info}}">
-    <F3:true>
-    <div id="notice">
-      <div class="info">
-        <h3 id="infoline">Bir bilgimiz var</h3>
-        {{@SESSION.info}}
-      </div>
-    </div>
-    </F3:true>
-    </F3:check>
-
     <div id="content">
 
       <F3:check if="{{@SESSION.admin}}">
@@ -81,10 +59,14 @@
           <li class="table"><a>{{@SESSION.TABLE}}</a></li>
           <li class="save"><a>{{@SESSION.SAVE}}</a></li>
           <li class="home"><a href="{{@SR}}">Tablolar</a></li>
+          <F3:check if="{{@SESSION.adminsuper}}">
           <li class="create"><a href="{{@SR}}/create">Ekle</a></li>
+          </F3:check>
           <li class="find"><a href="{{@SR}}/find">Ara</a></li>
           <li class="review"><a href="{{@SR}}/review">Tablo İncele</a></li>
+          <F3:check if="{{@SESSION.adminsuper}}">
           <li class="upload"><a href="{{@SR}}/upload">Csv Yükle</a></li>
+          </F3:check>
           <li class="download"><a href="{{@SR}}/download">Csv Çıktı</a></li>
         </ul>
       </div>

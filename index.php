@@ -3,6 +3,7 @@
 require_once  'lib/base.php';  // for fat-free
 require_once  'asset/lib.php'; // for plug-in
 require_once  'cfg/init.php';  // for db connect
+require_once  'cfg/process.php';  // for db connect
 
 F3::route("GET  /*",          'Account->login');  // login page
 F3::route("POST /login",      'Account->auth');   // login action

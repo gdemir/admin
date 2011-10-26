@@ -3,7 +3,6 @@
 class Datas extends F3instance {
 
 	function save() {
-
 		$TABLE = F3::get('SESSION.TABLE');
 		$KEY   = F3::get('SESSION.KEY');
 		$key   = F3::get('REQUEST.' . $KEY);
@@ -30,6 +29,8 @@ class Datas extends F3instance {
 		if (F3::exists('SESSION.error')) return F3::call('Datas->create'); // yüklemede hata var mı?
 		$table->save();
 
+		process($key, $_POST); // process takip
+
 		// yeni kayıt, kayıt sayısı
 		F3::set('SESSION.SAVE', count($table->find()));
 
@@ -38,7 +39,6 @@ class Datas extends F3instance {
 		return F3::reroute('/show/' . $key);
 	}
 	function find() {
-
 		$this->_checkkey();
 
 		$table = new Axon(F3::get('SESSION.TABLE'));
@@ -58,6 +58,8 @@ class Datas extends F3instance {
 
 		$table->erase();
 		F3::set('SESSION.SAVE', F3::get('SESSION.SAVE') - 1);
+
+		process(F3::get('PARAMS.key'), "silindi"); // process takip
 
 		F3::set('SESSION.info', F3::get('PARAMS.key') . " ye ait bilgiler başarıyla silindi");
 		F3::reroute('/find');
@@ -85,6 +87,7 @@ class Datas extends F3instance {
 			F3::set('SESSION.warning', "$KEY = $request_key olan bir kayıt var, güncelleme gerçekleşmedi");
 			return F3::reroute('/show/' . $request_key);
 		}
+		$datas = $table->afind("$KEY='$request_key'"); // process takip için
 		$table->load("$KEY='$key'"); // oturumdan veriyi yükleyelim
 
 		foreach ($_POST as $field => $value)
@@ -106,6 +109,9 @@ class Datas extends F3instance {
 		if (F3::exists('SESSION.error')) return F3::call('Page->edit'); // yüklemede hata var mı?
 
 		$table->save();
+
+		process($request_key, http_build_query($datas[0])); // process takip
+
 		return F3::reroute('/show/' . $request_key);
 	}
 	function upload() {

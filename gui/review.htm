@@ -56,10 +56,12 @@
             <a href="edit/{{@value}}">
               <input type="submit" id="button-edit" title="Düzenle" value="">
             </a>
+            <F3:check if="{{@SESSION.adminsuper}}">
             <a href="erase/{{@value}}">
               <input type="submit" id="button-delete" title="Sil" value=""
                 onClick="return confirm('Silmek istediğinizden emin misiniz?');"/>
-            </a>
+              </a>
+            </F3:check>
           </td>
         </F3:check>
         </F3:repeat>
