@@ -50,6 +50,8 @@ class Datas extends F3instance {
 		F3::call('Page->find');
 	}
 	function erase() {
+		if (!F3::get('SESSION.adminsuper')) return F3::reroute('/');
+
 		$table = new Axon(F3::get('SESSION.TABLE'));
 		$datas = $table->afind("$KEY='$request_key'"); // process takip için
 		$table->load(F3::get('SESSION.KEY') . "='" . F3::get('PARAMS.key') . "'");

@@ -20,11 +20,11 @@ class Page extends F3instance {
 
 		$table = new Axon(F3::get('TABLE'));
 		DB::sql('SELECT * FROM ' . F3::get('TABLE') .' WHERE login < logout');
-		F3::set('SESSION.ADMIN', F3::get('DB->result')); // last login admin
+		F3::set('SESSION.ADMINUNCONNECT', F3::get('DB->result')); // last login admin
 
 		$table = new Axon(F3::get('TABLE'));
 		DB::sql('SELECT * FROM ' . F3::get('TABLE') .' WHERE login > logout');
-		F3::set('SESSION.ADMINLOGIN', F3::get('DB->result')); // login user
+		F3::set('SESSION.ADMINCONNECT', F3::get('DB->result')); // login admin
 		$this->_clear(array('error'));
 		$this->_page('home', 'Yönetici Paneli');
 	}
@@ -33,6 +33,7 @@ class Page extends F3instance {
 		$this->_page('info', 'Bilgilendirme Sayfası');
 	}
 	function create() {
+		if (!F3::get('SESSION.adminsuper')) return F3::reroute('/');
 		$this->_clear(array('success'));
 		$this->_page('create', 'Kaydet');
 	}
@@ -52,6 +53,7 @@ class Page extends F3instance {
 		$this->_page('edit', 'düzenle');
 	}
 	function upload() {
+		if (!F3::get('SESSION.adminsuper')) return F3::reroute('/');
 		$this->_page('upload', 'Tablo Yükleme');
 	}
 	function download() {

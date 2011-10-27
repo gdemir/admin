@@ -54,13 +54,13 @@
 <div style="margin-top:-525px;margin-left:675px">
 <h2 style="width:180px;margin-bottom:40px">Adminler</h2>
   <ul id="ticker" class="ticker" style="width:250px;">
-    <F3:repeat group="{{@SESSION.ADMINLOGIN}}" value="{{@row}}" >
+    <F3:repeat group="{{@SESSION.ADMINCONNECT}}" value="{{@row}}" >
     <li id="connect">
       <b>{{@row.username}}</b> »
       <b>{{@row.login}} </b>
     </li>
     </F3:repeat>
-    <F3:repeat group="{{@SESSION.ADMIN}}" value="{{@row}}" >
+    <F3:repeat group="{{@SESSION.ADMINUNCONNECT}}" value="{{@row}}" >
     <li id="unconnect">
       <b>{{@row.username}}</b> »
       <b>{{@row.login}} </b>
