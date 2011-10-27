@@ -43,15 +43,13 @@ class Account extends F3instance {
 	// End the session
 	function logout() {
 
-		if (F3::get('SESSION.admin')) {
-			$username = F3::get('SESSION.adminusername');
-			$admin = new Axon(F3::get('TABLE'));
-			$admin->load("username='$username'");
-			$admin->logout = date("Y-m-d h:i:s");
-			$admin->save();
+		$username = F3::get('SESSION.adminusername');
+		$admin = new Axon(F3::get('TABLE'));
+		$admin->load("username='$username'");
+		$admin->logout = date("Y-m-d h:i:s");
+		$admin->save();
 
-			F3::clear('SESSION');
-		}
+		F3::clear('SESSION');
 		F3::reroute('/');
 	}
 
