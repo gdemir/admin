@@ -50,14 +50,14 @@
         <F3:repeat group="{{@row}}" key="{{@field}}" value="{{@value}}" >
         <F3:check if="{{@field == @SESSION.KEY}}">
           <td class="label" style="float:left;width:92px">
-            <a href="show/{{@value}}">
+            <a href="show/{{@value}}" target="_black">
               <input type="submit" id="button-preview" title="İncele" value="">
             </a>
-            <a href="edit/{{@value}}">
+            <a href="edit/{{@value}}" target="_blank">
               <input type="submit" id="button-edit" title="Düzenle" value="">
             </a>
             <F3:check if="{{@SESSION.adminsuper}}">
-            <a href="erase/{{@value}}">
+            <a href="erase/{{@value}}" target="_blank">
               <input type="submit" id="button-delete" title="Sil" value=""
                 onClick="return confirm('Silmek istediğinizden emin misiniz?');"/>
               </a>
