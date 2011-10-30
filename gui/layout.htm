@@ -5,17 +5,14 @@
     <meta http-equiv = "Expires" content = "-1" />
     <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8" />
     <link rel="shortcut icon" href="public/images/favicon.ico" />
-    <link rel="stylesheet"type="text/css" 
-    href="{{@SR}}/public/stylesheets/style.css" />
-    <script type='text/javascript' 
-      src='{{@SR}}/public/javascripts/jquery.js'></script>
+    <link rel="stylesheet" type="text/css" href="{{@SR}}/public/stylesheets/style.css" />
+    <script type='text/javascript' src='{{@SR}}/public/javascripts/jquery.js'></script>
 
     <title>{{@title}}</title>
   </head>
 
   <body>
     <F3:check if="{{@SESSION.admin}}">
-    <F3:true>
     <div id="wrapper">
       <div id="container">
         <ul class="tabs" id="mainNav">
@@ -25,35 +22,29 @@
         </ul>
       </div>
     </div>
-    </F3:true>
     </F3:check>
 
     <F3:check if="{{@SESSION.success}}">
-    <F3:true>
     <div id="notice">
       <div class="success">
         <h3 id="successline">Bir başarı iletisi var</h3>
         {{@SESSION.success}}
       </div>
     </div>
-    </F3:true>
     </F3:check>
 
     <F3:check if="{{@SESSION.error}}">
-    <F3:true>
     <div id="notice">
       <div class="error">
         <h3 id="errorline">Bir problemimiz var!</h3>
         {{@SESSION.error}}
       </div>
     </div>
-    </F3:true>
     </F3:check>
 
     <div id="content">
 
       <F3:check if="{{@SESSION.admin}}">
-      <F3:true>
       <div id="admin-panel">
         <ul>
           <li class="table"><a>{{@SESSION.TABLE}}</a></li>
@@ -70,11 +61,15 @@
           <li class="download"><a href="{{@SR}}/download">Csv Çıktı</a></li>
         </ul>
       </div>
-      </F3:true>
       </F3:check>
 
       <F3:include href="{{@template}}.htm"/>
     </div>
+    <F3:check if="{{@SESSION.admin}}">
+    <div id="ribbon">
+      <a href="http://github.com/gdemir/admin" rel="me" alt="GitHub'dayım">GitHub'dayım</a>
+    </div>
+    </F3::check>
   </body>
 </html>
 
