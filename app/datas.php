@@ -122,12 +122,13 @@ class Datas extends F3instance {
 		$TABLE    = F3::get('SESSION.TABLE');
 		$KEY      = F3::get('SESSION.KEY');
 		$csv_key  = F3::get('REQUEST.csv_key');
-		$csv_file = F3::get('FILES.csv_file');
 
 		$up = new Upload(array('csv'));
-		if ($response = ($up->load($TABLE, $TABLE, $csv_file, true)))
+		if ($response = ($up->load($TABLE, $TABLE, F3::get('FILES.csv_file'), true))) {
 			if (! $response[0])
 				F3::set('SESSION.error', $response[1]);
+		} else
+			F3::set('SESSION.error', "Yüklemede bir sorun ile karşılaşıldı");
 
 		// yükleme sırasında hata var mı?
 		if (F3::exists('SESSION.error')) return F3::call('Page->upload');
