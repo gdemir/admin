@@ -20,7 +20,7 @@ class Csv {
 		}
 		echo $rows;
 
-		header("Content-type: text/csv");
+		header("Content-type: text/csv; charset=utf-8");
 		header("Content-Disposition: attachment; filename=$_table-". date("Y.m.d") . ".csv");
 		exit;
 	}
