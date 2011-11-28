@@ -2,9 +2,8 @@
 
 **kullanılan yerler :**
 
-- http://bil.omu.edu.tr/admin
 - http://servis.omu.edu.tr/admin
-- http://test.omu.edu.tr/admin
+- http://sim.omu.edu.tr/admin
 - http://plan.a.ondokuz.biz/admin
 
 
