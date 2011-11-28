@@ -153,6 +153,8 @@ class Datas extends F3instance {
 				$table->$field = array_shift($row);
 			$table->save();
 		}
+
+		process($key, "csv yükleme", "csv yüklendi"); // process takip
 		F3::reroute('/review');
 	}
 	function download() {
@@ -192,7 +194,6 @@ class Datas extends F3instance {
 		foreach (F3::get('DB->result') as $index => $field)
 			array_push($fields, $field['Field']);
 		F3::set('SESSION.FIELDS', $fields);
-
 
 		F3::set('SESSION.success', "$TABLE tablosu başarıyla seçildi.");
 		F3::reroute('/home');

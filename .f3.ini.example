@@ -6,6 +6,8 @@ RELEASE="FALSE"
 FONTS="public/fonts/"
 TEMP="temp/"
 GUI="gui/"
+
+; Temel admin paneli için ayarlar
 TABLEPROCESS="process"
 TABLE="ondokuz"
 KEY="username"

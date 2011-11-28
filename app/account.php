@@ -107,7 +107,7 @@ class Account extends F3instance {
 // 			DB::sql("insert into " . F3::get('TABLE') . 
 // 				" (username, password, status, photo) " .
 // 				" values ('19', 'ondokuz', 1, '" . F3::get('default_image') . "');");
-	require_once 'cfg/db.php'; // FIXME
+		require_once 'cfg/db.php';
 	}
 
 	function afterroute() {
