@@ -6,6 +6,7 @@ RELEASE="FALSE"
 FONTS="public/fonts/"
 TEMP="temp/"
 GUI="gui/"
+IMPORTS="inc/"
 
 ; Temel admin paneli için ayarlar
 TABLEPROCESS="process"
@@ -18,6 +19,8 @@ dbuser="sim"
 dbpass="12345"
 
 ; Tablolar[Tables] ------------------
+; example :
+; table.<table_name>=primary_key;
 TABLEINIT="ondokuz"
 TABLES.ondokuz="username"
 TABLES.process="id"
@@ -26,18 +29,14 @@ TABLES.event="event_id"
 TABLES.event="event_id"
 TABLES.announcement="announcement_id"
 
-; example :
-; table.<table_name>=primary_key;
-
 ; Alanlar[Fields]  ------------------
+; example :
+; FIELDS.<field>=(true or false)
 FIELDS.id=false
 FIELDS.name=true
 FIELDS.tc=false
 FIELDS.photo=false
 FIELDS.login=false
-
-; example :
-; FIELDS.<field>=(true or false)
 
 ; Resim            -----------------
 uploaddir="public/upload/"
