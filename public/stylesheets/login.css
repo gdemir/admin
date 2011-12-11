@@ -58,6 +58,13 @@ table.login td.select{
     height: 27px;
     color:  #585858;
 }
+table.login td.captcha{
+    float: right;
+    display: inline-block;
+    margin-top: -1em;
+    margin-right: -2em;
+    margin-bottom: -5em;
+}
 
 #content{margin-top:8%;width:400px;min-height:220px;}
 #content h2 {font-size:17px;margin-bottom:30px;}

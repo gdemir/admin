@@ -83,7 +83,7 @@ table.custom td.field {
 }
 table.custom td.field span{float:left;margin:4px;}
 
-table.custom td.captcha {
+table.custom td.captcha img {
     float: right;
     display: inline-block;
     margin-top: -5.5em;

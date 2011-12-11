@@ -1,15 +1,20 @@
 <?php
 
-require_once  'lib/base.php';  // for fat-free
-require_once  'inc/lib.php'; // for plug-in
-require_once  'cfg/init.php';  // for db connect
+require_once  'lib/base.php';     // for fat-free
+require_once  'inc/lib.php';      // for plug-in
+require_once  'cfg/init.php';     // for db connect
 require_once  'cfg/process.php';  // for db connect
+
+
+
+
 
 F3::route("GET  /*",          'Account->login');  // login page
 F3::route("POST /login",      'Account->auth');   // login action
 F3::route('GET  /logout',     'Account->logout'); // logout action
 
 F3::route('GET  /home',       'Page->home');      // home page
+F3::route("GET  /captcha",    'Captcha->jester'); // captcha
 F3::route('POST /table',      'Datas->table');    // table action
 
 F3::route("GET  /info",       'Page->info');      // info page

@@ -4,6 +4,9 @@ class Account extends F3instance {
 
 	// Display our home page
 	function login() {
+		// clear page
+		F3::clear('SESSION.captcha');
+		F3::clear('SESSION.error');
 		if (F3::get('SESSION.admin'))
 			return F3::call('Page->home');
 		F3::call('Page->login');
@@ -53,7 +56,7 @@ class Account extends F3instance {
 		F3::reroute('/');
 	}
 
-	// Validate username, password
+	// Validate username, password, captcha
 	function _checkinput() {
 
 		foreach (array('username', 'password') as $alan) {
@@ -69,10 +72,31 @@ class Account extends F3instance {
 				}
 			);
 		}
+
+
+		if (F3::exists('SESSION.captcha')) {
+			F3::set('SESSION.error', 'Oturum Güvenlik Kodu eksik');
+			return;
+		}
+
+		foreach (array('captcha') as $alan) {
+			F3::input($alan,
+				function($value) use($alan) {
+					$ne = "Güvenlik Kodu";
+					$captcha = F3::get('SESSION.captcha');
+					F3::clear('SESSION.error');
+					if ($hata = denetle($value, array(
+						'dolu'    => array(true,                 "$ne boş bırakılamaz"),
+						'enaz'    => array(strlen($captcha),     "$ne çok kısa"),
+						'degeri'  => array(strtolower($captcha), "Yanlış $ne"),
+					))) { F3::set('SESSION.error', $hata); return; }
+				}
+			);
+		}
 	}
 
 	function beforeroute() {
-// 
+//
 // 		DB::sql(
 // 			array(
 // 			'CREATE TABLE IF NOT EXISTS ondokuz ('.
@@ -88,7 +112,7 @@ class Account extends F3instance {
 // 			'ENGINE = MyISAM'.
 // 			'DEFAULT CHARACTER SET = utf8'.
 // 			'COLLATE = utf8_general_ci;',
-// 
+//
 // 			'CREATE TABLE IF NOT EXISTS process ('.
 // 			'id INT NOT NULL AUTO_INCREMENT ,'.
 // 			'username VARCHAR(45) CHARACTER SET "utf8" COLLATE "utf8_general_ci" NOT NULL ,'.
@@ -101,10 +125,10 @@ class Account extends F3instance {
 // 			'DEFAULT CHARACTER SET = utf8'.
 // 			'COLLATE = utf8_general_ci;'
 // 		));
-// 
+//
 // 		$table = new Axon(F3::get('TABLE'));
 // 		if (count($table->find()) == 0)
-// 			DB::sql("insert into " . F3::get('TABLE') . 
+// 			DB::sql("insert into " . F3::get('TABLE') .
 // 				" (username, password, status, photo) " .
 // 				" values ('19', 'ondokuz', 1, '" . F3::get('default_image') . "');");
 		require_once 'cfg/db.php';

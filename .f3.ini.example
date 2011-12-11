@@ -4,7 +4,7 @@ extlink="window.open(this.href); return false;"
 AUTOLOAD="app/"
 RELEASE="FALSE"
 FONTS="public/fonts/"
-TEMP="temp/"
+TEMP="tmp/"
 GUI="gui/"
 IMPORTS="inc/"
 
